@@ -1045,12 +1045,19 @@
 
       .select-package-header h2 { font-size: 30px; }
       .tier-grid {
-        grid-template-columns: 1fr;
-        max-width: 380px;
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 520px;
+        gap: 12px;
       }
-      .tier-numbers { font-size: 42px; }
-      .tier-price { font-size: 28px; }
+      .tier-card { padding: 22px 14px 18px; }
+      .tier-card.popular { padding-top: 46px; }
+      .tier-name { font-size: 20px; }
+      .tier-numbers { font-size: 34px; }
+      .tier-numbers-label { font-size: 11px; margin-bottom: 10px; }
+      .tier-bonus { font-size: 12px; padding: 5px 12px; margin-bottom: 12px; }
+      .tier-original { font-size: 14px; }
+      .tier-price { font-size: 24px; margin: 2px 0 12px; }
+      .tier-select-btn { font-size: 14px; padding: 11px; }
 
       .countdown { gap: 10px; }
       .countdown-item { min-width: 70px; padding: 14px; }
@@ -1098,12 +1105,18 @@
       .hero-eyebrow { font-size: 12px; letter-spacing: 3px; }
       .hero-prize-tag { font-size: 13px; padding: 6px 18px; }
 
-      .tier-grid { max-width: 100%; padding: 0 16px; }
-      .tier-card { padding: 24px 16px 20px; }
-      .tier-card.popular { padding-top: 48px; }
-      .tier-name { font-size: 22px; }
-      .tier-numbers { font-size: 36px; }
-      .tier-price { font-size: 26px; }
+      .tier-grid { max-width: 100%; padding: 0 12px; gap: 8px; }
+      .tier-card { padding: 18px 10px 14px; }
+      .tier-card.popular { padding-top: 42px; }
+      .tier-popular-badge { font-size: 11px; padding: 6px 0; letter-spacing: 1px; }
+      .tier-discount { font-size: 11px; padding: 3px 10px; margin-bottom: 8px; }
+      .tier-name { font-size: 17px; }
+      .tier-numbers { font-size: 28px; }
+      .tier-numbers-label { font-size: 10px; margin-bottom: 8px; }
+      .tier-bonus { font-size: 10px; padding: 4px 8px; margin-bottom: 10px; gap: 4px; }
+      .tier-original { font-size: 13px; }
+      .tier-price { font-size: 20px; margin: 2px 0 10px; }
+      .tier-select-btn { font-size: 12px; padding: 10px 6px; letter-spacing: 1px; }
 
       .countdown-item { min-width: 60px; padding: 10px; }
       .countdown-item .number { font-size: 28px; }
@@ -1327,12 +1340,34 @@
     <div class="carousel-wrapper" id="ramCarousel">
       <button class="carousel-btn prev" onclick="slideCarousel('ram', -1)"><i class="fa-solid fa-chevron-left"></i></button>
       <div class="carousel-track" id="ramTrack">
-        <img src="images/ram-1.png" alt="RAM frontal">
-        <img src="images/ram-2.png" alt="RAM lateral">
-        <img src="images/lateral 1.png" alt="RAM perfil">
-        <img src="images/lateral 2.png" alt="RAM traseira">
-        <img src="images/ram-5.png" alt="RAM interior painel">
-        <img src="images/ram-6.png" alt="RAM interior banco traseiro">
+        <img src="../images/IMG_1938.JPG" alt="Barone Prêmios foto 1">
+        <img src="../images/IMG_1943.JPG" alt="Barone Prêmios foto 8">
+        <img src="../images/IMG_1944.JPG" alt="Barone Prêmios foto 9">
+        <img src="../images/IMG_1945.JPG" alt="Barone Prêmios foto 10">
+        <img src="../images/IMG_1946.JPG" alt="Barone Prêmios foto 11">
+        <img src="../images/IMG_1947.JPG" alt="Barone Prêmios foto 12">
+        <img src="../images/IMG_1948.JPG" alt="Barone Prêmios foto 13">
+        <img src="../images/IMG_1949.JPG" alt="Barone Prêmios foto 14">
+        <img src="../images/IMG_1950.JPG" alt="Barone Prêmios foto 15">
+        <img src="../images/IMG_1951.JPG" alt="Barone Prêmios foto 16">
+        <img src="../images/IMG_1952.JPG" alt="Barone Prêmios foto 17">
+        <img src="../images/IMG_1953.JPG" alt="Barone Prêmios foto 18">
+        <img src="../images/IMG_1954.JPG" alt="Barone Prêmios foto 19">
+        <img src="../images/IMG_1955.JPG" alt="Barone Prêmios foto 20">
+        <img src="../images/IMG_1956.JPG" alt="Barone Prêmios foto 21">
+        <img src="../images/IMG_1957.JPG" alt="Barone Prêmios foto 22">
+        <img src="../images/IMG_1958.JPG" alt="Barone Prêmios foto 23">
+        <img src="../images/IMG_1959.JPG" alt="Barone Prêmios foto 24">
+        <img src="../images/IMG_1960.JPG" alt="Barone Prêmios foto 25">
+        <img src="../images/IMG_1961.JPG" alt="Barone Prêmios foto 26">
+        <img src="../images/IMG_1962.JPG" alt="Barone Prêmios foto 27">
+        <img src="../images/IMG_1963.JPG" alt="Barone Prêmios foto 28">
+        <img src="../images/IMG_1964.JPG" alt="Barone Prêmios foto 29">
+        <img src="../images/IMG_1965.JPG" alt="Barone Prêmios foto 30">
+        <img src="../images/IMG_1966.JPG" alt="Barone Prêmios foto 31">
+        <img src="../images/IMG_1967.JPG" alt="Barone Prêmios foto 32">
+        <img src="../images/IMG_1968.JPG" alt="Barone Prêmios foto 33">
+        <img src="../images/IMG_1969.JPG" alt="Barone Prêmios foto 34">
       </div>
       <button class="carousel-btn next" onclick="slideCarousel('ram', 1)"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
@@ -1565,7 +1600,7 @@
     }
 
     // ========== CAROUSEL ==========
-    const carousels = { ram: { index: 0, track: null, total: 6, visible: 3 } };
+    const carousels = { ram: { index: 0, track: null, total: 28, visible: 3 } };
 
     function initCarousels() {
       carousels.ram.track = document.getElementById('ramTrack');
