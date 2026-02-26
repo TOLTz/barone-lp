@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barone Premios - Concorra a Premios Incriveis</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;700&family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', Arial, sans-serif;
+      background-color: #f5f2ef;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --green-dark: #103200;
+      --green-medium: #236a00;
+      --green-bright: #01b701;
+      --green-light: #00df00;
+      --gold: #f4c24c;
+      --white: #ffffff;
+      --black: #000000;
+      --gray-light: #f3f3f3;
+      --off-white: #f5f2ef;
+
+      --gradient-header: linear-gradient(0deg, #103200 0%, #236a00 100%);
+      --gradient-green-h: linear-gradient(90deg, #236a00 0%, #103200 100%);
+      --gradient-btn: linear-gradient(90deg, #01b701 0%, #00df00 100%);
+      --gradient-btn-hover: linear-gradient(90deg, #b9db4a 0%, #ccf155 100%);
+      --gradient-green-bright: linear-gradient(90deg, #007310 0%, #33af16 100%);
+
+      --max-width: 960px;
+      --max-width-wide: 1200px;
+    }
+
+    /* ========== UTILITY ========== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .container-wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--gradient-btn);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      padding: 14px 50px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary:hover {
+      background: var(--gradient-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 223, 0, 0.3);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      display: block;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-banner .btn-primary {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 26px;
+      padding: 18px 80px;
+      z-index: 2;
+    }
+
+    /* ========== PURCHASE SECTION ========== */
+    .purchase-section {
+      background: var(--gradient-header);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .purchase-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .purchase-section .purchase-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 50px;
+    }
+
+    /* Tier List */
+    .tier-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      padding: 0 40px;
+    }
+
+    .tier-card {
+      border-radius: 12px;
+      padding: 16px 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .tier-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .tier-card.selected {
+      border-color: var(--green-light);
+      box-shadow: 0 0 20px rgba(0, 223, 0, 0.35);
+    }
+
+    /* Basico */
+    .tier-basico {
+      background: linear-gradient(90deg, #b0c4d8 0%, #d6e4f0 100%);
+    }
+    .tier-basico, .tier-basico * { color: #1a2a3a; }
+
+    /* Silver */
+    .tier-silver {
+      background: linear-gradient(90deg, #a8a8a8 0%, #d4d4d4 100%);
+    }
+    .tier-silver, .tier-silver * { color: #1a1a2e; }
+
+    /* Gold */
+    .tier-gold {
+      background: linear-gradient(90deg, #c9a227 0%, #f5d76e 100%);
+    }
+    .tier-gold, .tier-gold * { color: #2a1f00; }
+
+    .tier-check {
+      display: none;
+      width: 28px;
+      height: 28px;
+      background: var(--green-light);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .tier-card.selected .tier-check {
+      display: flex;
+    }
+
+    .tier-radio {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 3px solid rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .tier-card.selected .tier-radio {
+      display: none;
+    }
+
+    .tier-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+      min-width: 80px;
+    }
+
+    .tier-numbers {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .tier-numbers-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.6;
+    }
+
+    .tier-bonus {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .tier-bonus i {
+      color: #2196F3;
+    }
+
+    .tier-prices {
+      margin-left: auto;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .tier-original {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .tier-price {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+    }
+
+    .tier-badge {
+      position: absolute;
+      top: -1px;
+      right: 16px;
+      background: #e63946;
+      color: var(--white) !important;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 10px 5px;
+      border-radius: 0 0 8px 8px;
+      z-index: 2;
+    }
+
+    /* Purchase CTA */
+    .purchase-cta {
+      margin-top: 10px;
+    }
+
+    .purchase-cta .btn-primary {
+      font-size: 28px;
+      padding: 18px 70px;
+      position: relative;
+    }
+
+    .purchase-cta .btn-primary i {
+      margin-right: 10px;
+    }
+
+    .purchase-cta .btn-primary.disabled {
+      background: #444;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .purchase-cta .btn-primary.disabled:hover {
+      background: #444;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ========== SPECS + RAM CAROUSEL ========== */
+    .specs-section {
+      background: var(--off-white);
+      padding: 80px 0;
+    }
+
+    .specs-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 50px;
+    }
+
+    .specs-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .specs-text h2 {
+      font-family: 'Bebas Neue', 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 56px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+    }
+
+    .specs-list {
+      list-style: none;
+    }
+
+    .specs-list li {
+      font-family: 'Oswald', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+      padding: 10px 0;
+      border-bottom: 2px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .specs-list li i {
+      color: var(--green-dark);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .specs-image {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .specs-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* RAM Carousel */
+    .ram-carousel-section {
+      background: var(--gray-light);
+      padding: 60px 0;
+    }
+
+    .carousel-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      padding: 0 60px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 16px;
+    }
+
+    .carousel-track img {
+      flex: 0 0 calc(33.333% - 11px);
+      width: calc(33.333% - 11px);
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--gradient-btn);
+      color: var(--white);
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: var(--gradient-btn-hover);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+
+    /* ========== WINNERS / GANHADORES ========== */
+    .winners-section {
+      background: var(--gradient-green-h);
+      padding: 80px 0;
+    }
+
+    .winners-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      color: var(--white);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .winners-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .winners-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .winners-grid img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-section {
+      background: var(--gradient-green-h);
+      padding: 80px 0;
+    }
+
+    .faq-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 60px;
+      color: var(--white);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .faq-section .faq-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      color: var(--white);
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      cursor: pointer;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .faq-question .arrow {
+      font-size: 14px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .faq-item.open .faq-question .arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      color: rgba(255,255,255,0.85);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    /* ========== INSTAGRAM ========== */
+    .insta-section {
+      background: var(--white);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .insta-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 60px;
+      margin-bottom: 40px;
+    }
+
+    .insta-section h2 span.black {
+      color: var(--black);
+    }
+
+    .insta-section h2 span.green {
+      color: #194e00;
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: var(--max-width);
+      margin: 0 auto 40px;
+      padding: 0 40px;
+    }
+
+    .insta-grid a {
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      aspect-ratio: 1;
+    }
+
+    .insta-grid a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .insta-grid a:hover img {
+      transform: scale(1.08);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--gradient-header);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 3fr 4fr 3fr 2fr;
+      gap: 30px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .footer-col h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo img {
+      max-width: 180px;
+    }
+
+    .footer-logo img.lotep {
+      max-width: 160px;
+      opacity: 0.9;
+    }
+
+    .footer-links a {
+      display: block;
+      padding: 3px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 40px auto 0;
+      max-width: var(--max-width);
+    }
+
+    .footer-copyright {
+      text-align: center;
+      padding: 20px 0;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .footer-legal {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 40px 30px;
+      color: rgba(255,255,255,0.6);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .footer-legal a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: underline;
+    }
+
+    .footer-powered {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+
+    .footer-powered img {
+      max-width: 130px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+
+    /* ========== BOTTOM NAV (MOBILE) ========== */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--green-dark);
+      z-index: 1000;
+      padding: 8px 0 12px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    .bottom-nav-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgba(255,255,255,0.7);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover,
+    .bottom-nav a.active {
+      color: var(--white);
+    }
+
+    .bottom-nav a i {
+      font-size: 20px;
+    }
+
+    .bottom-nav a.buy-btn {
+      background: var(--gradient-btn);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 12px;
+      flex-direction: row;
+      gap: 6px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .hero-banner .btn-primary {
+        font-size: 16px;
+        padding: 12px 40px;
+        bottom: 6%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .purchase-section h2 {
+        font-size: 32px;
+      }
+
+      .tier-grid {
+        padding: 0 16px;
+        gap: 10px;
+      }
+
+      .tier-card {
+        padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .tier-name { font-size: 16px; min-width: 60px; }
+      .tier-numbers { font-size: 22px; }
+      .tier-price { font-size: 20px; }
+      .tier-bonus { font-size: 11px; padding: 3px 8px; }
+      .tier-original { font-size: 11px; }
+
+      .purchase-cta .btn-primary {
+        font-size: 20px;
+        padding: 16px 50px;
+      }
+
+      .specs-inner {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .specs-text h2 { font-size: 32px; }
+
+      .carousel-track img {
+        flex: 0 0 calc(50% - 8px);
+        width: calc(50% - 8px);
+      }
+
+      .winners-grid {
+        padding: 0 20px;
+      }
+
+      .winners-section h2 { font-size: 36px; }
+
+      .carousel-wrapper {
+        padding: 0 50px;
+      }
+
+      .faq-section h2,
+      .insta-section h2 {
+        font-size: 36px;
+      }
+
+      .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-logo {
+        align-items: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .btn-primary {
+        font-size: 16px;
+        padding: 12px 36px;
+      }
+
+      .bottom-nav {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 70px;
+      }
+
+      .container, .container-wide {
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner .btn-primary {
+        font-size: 12px;
+        padding: 8px 28px;
+        bottom: 4%;
+      }
+
+      .faq-section,
+      .insta-section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-banner">
+      <img src="images/banner-hero.png" alt="BMW R1200 GS - Concorra agora">
+      <a href="#comprar" class="btn-primary">COMPRAR</a>
+    </div>
+  </section>
+
+  <!-- ========== COMPRA DE NUMEROS ========== -->
+  <section class="purchase-section" id="comprar">
+    <div class="container">
+      <h2>GARANTA SEUS NUMEROS DA SORTE</h2>
+      <p class="purchase-subtitle">Escolha seu pacote e aumente suas chances de ganhar!</p>
+    </div>
+
+    <!-- Tier List -->
+    <div class="tier-grid">
+      <!-- BASICO -->
+      <div class="tier-card tier-basico" data-tier="basico" data-qty="50" data-price="27.90" onclick="selectTier(this)">
+        <span class="tier-badge">7% OFF</span>
+        <div class="tier-radio"></div>
+        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+        <div class="tier-name">BASICO</div>
+        <div>
+          <div class="tier-numbers">50</div>
+          <div class="tier-numbers-label">Numeros da Sorte</div>
+        </div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +3 Caixas</div>
+        <div class="tier-prices">
+          <div class="tier-original">R$30,00</div>
+          <div class="tier-price">R$27,90</div>
+        </div>
+      </div>
+
+      <!-- SILVER -->
+      <div class="tier-card tier-silver" data-tier="silver" data-qty="100" data-price="49.80" onclick="selectTier(this)">
+        <span class="tier-badge">17% OFF</span>
+        <div class="tier-radio"></div>
+        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+        <div class="tier-name">SILVER</div>
+        <div>
+          <div class="tier-numbers">100</div>
+          <div class="tier-numbers-label">Numeros da Sorte</div>
+        </div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +10 Caixas</div>
+        <div class="tier-prices">
+          <div class="tier-original">R$60,00</div>
+          <div class="tier-price">R$49,80</div>
+        </div>
+      </div>
+
+      <!-- GOLD -->
+      <div class="tier-card tier-gold" data-tier="gold" data-qty="200" data-price="90.00" onclick="selectTier(this)">
+        <span class="tier-badge">25% OFF</span>
+        <div class="tier-radio"></div>
+        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+        <div class="tier-name">GOLD</div>
+        <div>
+          <div class="tier-numbers">200</div>
+          <div class="tier-numbers-label">Numeros da Sorte</div>
+        </div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +50 Caixas</div>
+        <div class="tier-prices">
+          <div class="tier-original">R$120,00</div>
+          <div class="tier-price">R$90,00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="purchase-cta">
+      <a href="#" id="buyBtn" class="btn-primary" onclick="goToCheckout(event)">
+        <i class="fa-solid fa-cart-shopping"></i>COMPRAR
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== ESPECIFICACOES TECNICAS ========== -->
+  <section class="specs-section">
+    <div class="specs-inner">
+      <div class="specs-text">
+        <h2>Especificacoes Tecnicas</h2>
+        <ul class="specs-list">
+          <li><i class="fa-solid fa-circle-check"></i> Motor 5.7L V8 HEMI</li>
+          <li><i class="fa-solid fa-circle-check"></i> Potencia aproximada de 395 cv</li>
+          <li><i class="fa-solid fa-circle-check"></i> Torque em torno de 56,7 kgfm</li>
+          <li><i class="fa-solid fa-circle-check"></i> Transmissao automatica de 8 marchas</li>
+          <li><i class="fa-solid fa-circle-check"></i> Tracao 4x4</li>
+          <li><i class="fa-solid fa-circle-check"></i> Sistema mild-hybrid eTorque</li>
+          <li><i class="fa-solid fa-circle-check"></i> Suspensao off-road com amortecedores Bilstein</li>
+          <li><i class="fa-solid fa-circle-check"></i> Diferencial traseiro blocante</li>
+          <li><i class="fa-solid fa-circle-check"></i> Altura do solo aproximada de 24 cm</li>
+          <li><i class="fa-solid fa-circle-check"></i> Rodas aro 18" - Pneus All-Terrain</li>
+          <li><i class="fa-solid fa-circle-check"></i> Capacidade de reboque de ate cerca de 5.700 kg</li>
+          <li><i class="fa-solid fa-circle-check"></i> Picape grande com foco em off-road, forca e robustez</li>
+        </ul>
+      </div>
+      <div class="specs-image">
+        <img src="images/ram-2.png" alt="RAM 1500 Rebel">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CARROSSEL FOTOS RAM ========== -->
+  <section class="ram-carousel-section">
+    <div class="carousel-wrapper" id="ramCarousel">
+      <button class="carousel-btn prev" onclick="slideCarousel('ram', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="carousel-track" id="ramTrack">
+        <img src="images/ram-1.png" alt="RAM frontal">
+        <img src="images/ram-2.png" alt="RAM lateral">
+        <img src="images/ram-3.png" alt="RAM perfil">
+        <img src="images/ram-4.png" alt="RAM traseira">
+        <img src="images/ram-5.png" alt="RAM interior painel">
+        <img src="images/ram-6.png" alt="RAM interior banco traseiro">
+      </div>
+      <button class="carousel-btn next" onclick="slideCarousel('ram', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ========== GANHADORES ========== -->
+  <section class="winners-section" id="ganhadores">
+    <h2>Nossos Ganhadores</h2>
+    <p class="winners-subtitle">+R$5 milhoes em premios entregues!</p>
+    <div class="winners-grid">
+      <img src="images/ganhadores-1.png" alt="Ganhadores">
+      <img src="images/ganhadores-2.png" alt="Ganhadores">
+      <img src="images/ganhadores-3.png" alt="Ganhadores">
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2>FICOU COM DUVIDA?</h2>
+      <p class="faq-subtitle">Estamos aqui para ajudar!</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            QUEM PODE COMPRAR O BILHETE?
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Qualquer pessoa fisica brasileira, acima de 18 anos de idade, que aceite nossos Termos de Uso. Vendemos para todo o Brasil.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Esse Sorteio e Legal?
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim! Barone Premios e Bilhete Premiado de Pagamento Unico, emitidos pela LOTEP, inscrita no CNPJ sob no 09.300.922/0001-99. Os Premios sao pagos em dinheiro liquido, ou seja, voce recebe o valor ja livre de impostos.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            SORTEIOS
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nao ha necessidade de se preocupar com os tramites relacionados a entrega do premio, pois nos cuidaremos de tudo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            ONDE O PREMIO SERA ENTREGUE?
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nossa equipe entrara em contato com voce atraves do seu WhatsApp para fazer o pagamento do seu premio.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Tem outras duvidas?
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Fique tranquilo! Basta entrar nos grupos do sorteio!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSTAGRAM ========== -->
+  <section class="insta-section">
+    <div class="container">
+      <h2><span class="black">Segue LA no </span><span class="green">insta!</span></h2>
+    </div>
+    <div class="insta-grid">
+      <a href="https://www.instagram.com/eusoubarone2/" target="_blank">
+        <img src="images/insta-1.webp" alt="Instagram Barone">
+      </a>
+      <a href="https://www.instagram.com/eusoubarone2/" target="_blank">
+        <img src="images/insta-2.webp" alt="Instagram Barone">
+      </a>
+      <a href="https://www.instagram.com/eusoubarone2/" target="_blank">
+        <img src="images/insta-3.webp" alt="Instagram Barone">
+      </a>
+      <a href="https://www.instagram.com/eusoubarone2/" target="_blank">
+        <img src="images/insta-4.webp" alt="Instagram Barone">
+      </a>
+    </div>
+    <a href="https://www.instagram.com/eusoubarone2/" target="_blank" class="btn-primary">
+      <i class="fa-solid fa-star" style="margin-right: 8px;"></i>SEGUIR
+    </a>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Col 1: Logos -->
+      <div class="footer-col footer-logo">
+        <img src="images/logo.webp" alt="Barone Premios">
+        <img src="images/lotep-branco.webp" alt="LOTEP" class="lotep">
+      </div>
+
+      <!-- Col 2: Grupos -->
+      <div class="footer-col">
+        <h3>Entre nos Grupos</h3>
+        <p><strong>Atendimento de segunda a sabado, das 09h as 19h</strong></p>
+        <br>
+        <p>
+          <a href="https://sendflow.pro/i/QhwHhkMG8yreSaRZOGpp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Grupo do WhatsApp</a>
+        </p>
+        <p>
+          <a href="https://t.me/baronepremios" target="_blank"><i class="fa-brands fa-telegram"></i> Canal do Telegram</a>
+        </p>
+        <p>
+          <a href="https://linktr.ee/baronepremios" target="_blank"><i class="fa-solid fa-link"></i> Linktree</a>
+        </p>
+      </div>
+
+      <!-- Col 3: Sobre Nos -->
+      <div class="footer-col footer-links">
+        <h3>Sobre Nos</h3>
+        <a href="#sobre">Sobre Nos</a>
+        <a href="#ganhadores">Ganhadores</a>
+        <a href="#contato">Fale Conosco</a>
+        <a href="#termos">Termos de Uso</a>
+        <a href="#ajuda">Ajuda</a>
+        <a href="#regulamento">Regulamento</a>
+        <a href="#jogo-responsavel">Jogo Responsavel</a>
+      </div>
+
+      <!-- Col 4: Redes Sociais -->
+      <div class="footer-col">
+        <h3>REDES SOCIAIS</h3>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/eusoubarone2/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@eusoubaronevertical" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-copyright">
+      2025 - Barone Premios
+    </div>
+
+    <hr class="footer-divider" style="margin-top: 0;">
+
+    <div class="footer-legal">
+      Se voce ou alguem que voce conhece esta enfrentando problemas com o jogo, ha recursos disponiveis para oferecer suporte:
+      <br><br>
+      <strong>Jogadores Anonimos Brasil:</strong> Um grupo de apoio para pessoas que enfrentam problemas com jogos de azar.
+      Visite <a href="https://www.jogadoresanonimos.org.br" target="_blank">www.jogadoresanonimos.org.br</a>
+      <br><br>
+      <strong>Centro de Apoio Psicossocial Alcool e Drogas (CAPS AD):</strong> Oferece atendimento para pessoas com problemas relacionados ao uso de substancias e comportamentos compulsivos, incluindo jogos.
+      <br><br>
+      <strong>Viva Voz:</strong> Servico de atendimento telefonico para orientacao e apoio. Ligue para <strong>132</strong>.
+      <br><br>
+      Lembre-se, o jogo responsavel e a chave para uma experiencia divertida e segura.
+      <br><br>
+      Este bilhete de loteria esta autorizado com base na portaria AUTORIZACAO LOTEP LTP-PRC-2025/02053 - Barone Premios.
+      <br><br>
+      Imagens meramente ilustrativas
+    </div>
+
+    <div class="footer-powered">
+      <a href="https://play55.com.br/" target="_blank">
+        <img src="images/powered-play55.webp" alt="Powered by Play55">
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========== BOTTOM NAV (MOBILE) ========== -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="#" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+        <span>Mais</span>
+      </a>
+      <a href="#numeros" aria-label="Consultar">
+        <i class="fa-solid fa-ticket"></i>
+        <span>Consultar</span>
+      </a>
+      <a href="https://checkout.baronepremios.com.br/" target="_blank" class="buy-btn" aria-label="Comprar">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Comprar</span>
+      </a>
+      <a href="#resultados" aria-label="Resultados">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Resultados</span>
+      </a>
+      <a href="#sobre" aria-label="Sobre">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>Sobre nos</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // FAQ accordion
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const wasOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+      // Toggle current
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    // ========== CAROUSEL LOGIC ==========
+    const carousels = {
+      ram: { index: 0, track: null, total: 6, visible: 3 }
+    };
+
+    function initCarousels() {
+      carousels.ram.track = document.getElementById('ramTrack');
+
+      function updateVisible() {
+        carousels.ram.visible = window.innerWidth <= 768 ? 2 : 3;
+      }
+
+      updateVisible();
+      window.addEventListener('resize', () => {
+        updateVisible();
+        slideCarousel('ram', 0);
+      });
+    }
+
+    function slideCarousel(name, dir) {
+      const c = carousels[name];
+      if (!c.track) return;
+
+      const maxIndex = c.total - c.visible;
+      c.index = Math.max(0, Math.min(maxIndex, c.index + dir));
+
+      const pct = (c.index / c.total) * 100;
+      c.track.style.transform = `translateX(-${pct}%)`;
+    }
+
+    document.addEventListener('DOMContentLoaded', initCarousels);
+
+    // ========== PURCHASE SECTION LOGIC ==========
+    let selectedTier = null;
+    let currentQty = 50;
+    const UNIT_PRICE = 0.558; // base price per number (basico rate)
+
+    const tiers = {
+      basico:  { qty: 50,  price: 27.90,  unit: 0.558 },
+      silver:  { qty: 100, price: 49.80,  unit: 0.498 },
+      gold:    { qty: 200, price: 90.00,  unit: 0.45  }
+    };
+
+    function selectTier(el) {
+      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedTier = el.dataset.tier;
+      currentQty = tiers[selectedTier].qty;
+    }
+
+    function goToCheckout(e) {
+      e.preventDefault();
+      const checkoutUrl = 'https://checkout.baronepremios.com.br/';
+      const params = new URLSearchParams();
+      params.set('qty', currentQty);
+      if (selectedTier) {
+        params.set('pacote', selectedTier);
+      }
+      window.open(checkoutUrl + '?' + params.toString(), '_blank');
+    }
+
+    // Auto-select basico on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const basicoCard = document.querySelector('[data-tier="basico"]');
+      if (basicoCard) selectTier(basicoCard);
+    });
+
+    // Scroll animations (intersection observer)
+    const animateOnScroll = () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.badge-item, .etapa-card, .faq-item, .tier-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+  </script>
+
+</body>
+</html>
