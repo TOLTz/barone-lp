@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barone Premios - Concorra a Premios Incriveis</title>
+  <title>Barone Prêmios - Concorra a Prêmios Incríveis</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +97,7 @@
       font-weight: 700;
       font-size: 24px;
       padding: 14px 50px;
-      border-radius: 50px;
+      border-radius: 16px;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -131,9 +131,11 @@
     .hero-banner .btn-primary {
       display: block;
       margin: 30px auto 0;
-      font-size: 48px;
-      padding: 30px 160px;
+      font-size: 32px;
+      padding: 22px 60px;
       width: fit-content;
+      text-align: center;
+      max-width: 90%;
     }
 
     /* ========== PURCHASE SECTION ========== */
@@ -802,8 +804,8 @@
     /* ========== RESPONSIVE ========== */
     @media (max-width: 1024px) {
       .hero-banner .btn-primary {
-        font-size: 36px;
-        padding: 22px 100px;
+        font-size: 26px;
+        padding: 18px 50px;
       }
     }
 
@@ -819,14 +821,16 @@
 
       .tier-card {
         padding: 14px 16px;
-        gap: 12px;
+        gap: 10px;
+        flex-wrap: wrap;
       }
 
-      .tier-name { font-size: 16px; min-width: 60px; }
-      .tier-numbers { font-size: 22px; }
-      .tier-price { font-size: 20px; }
-      .tier-bonus { font-size: 11px; padding: 3px 8px; }
-      .tier-original { font-size: 11px; }
+      .tier-name { font-size: 16px; min-width: 55px; }
+      .tier-numbers { font-size: 20px; }
+      .tier-numbers-label { font-size: 10px; }
+      .tier-price { font-size: 18px; }
+      .tier-bonus { font-size: 10px; padding: 3px 7px; }
+      .tier-original { font-size: 10px; }
 
       .purchase-cta .btn-primary {
         font-size: 20px;
@@ -897,9 +901,23 @@
 
     @media (max-width: 480px) {
       .hero-banner .btn-primary {
-        font-size: 28px;
-        padding: 18px 60px;
+        font-size: 18px;
+        padding: 16px 30px;
       }
+
+      .tier-card {
+        padding: 12px 12px;
+        gap: 8px;
+      }
+
+      .tier-radio, .tier-check { width: 22px; height: 22px; font-size: 11px; }
+      .tier-name { font-size: 14px; min-width: 50px; }
+      .tier-numbers { font-size: 18px; }
+      .tier-numbers-label { font-size: 9px; }
+      .tier-price { font-size: 16px; }
+      .tier-bonus { font-size: 9px; padding: 2px 6px; }
+      .tier-original { font-size: 9px; }
+      .tier-badge { font-size: 9px; padding: 2px 7px 3px; }
 
       .faq-section,
       .insta-section {
@@ -914,28 +932,28 @@
   <section class="hero">
     <div class="hero-banner">
       <img src="images/banner-hero.png" alt="BMW R1200 GS - Concorra agora">
-      <a href="#comprar" class="btn-primary">COMPRAR</a>
+      <a href="#comprar" class="btn-primary">QUERO GANHAR A RAM DOS SONHOS</a>
     </div>
   </section>
 
   <!-- ========== COMPRA DE NUMEROS ========== -->
   <section class="purchase-section" id="comprar">
     <div class="container">
-      <h2>GARANTA SEUS NUMEROS DA SORTE</h2>
+      <h2>GARANTA SEUS NÚMEROS DA SORTE</h2>
       <p class="purchase-subtitle">Escolha seu pacote e aumente suas chances de ganhar!</p>
     </div>
 
     <!-- Tier List -->
     <div class="tier-grid">
-      <!-- BASICO -->
+      <!-- BÁSICO -->
       <div class="tier-card tier-basico" data-tier="basico" data-qty="50" data-price="27.90" onclick="selectTier(this)">
         <span class="tier-badge">7% OFF</span>
         <div class="tier-radio"></div>
         <div class="tier-check"><i class="fa-solid fa-check"></i></div>
-        <div class="tier-name">BASICO</div>
+        <div class="tier-name">BÁSICO</div>
         <div>
           <div class="tier-numbers">50</div>
-          <div class="tier-numbers-label">Numeros da Sorte</div>
+          <div class="tier-numbers-label">Números da Sorte</div>
         </div>
         <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +3 Caixas</div>
         <div class="tier-prices">
@@ -952,7 +970,7 @@
         <div class="tier-name">SILVER</div>
         <div>
           <div class="tier-numbers">100</div>
-          <div class="tier-numbers-label">Numeros da Sorte</div>
+          <div class="tier-numbers-label">Números da Sorte</div>
         </div>
         <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +10 Caixas</div>
         <div class="tier-prices">
@@ -969,7 +987,7 @@
         <div class="tier-name">GOLD</div>
         <div>
           <div class="tier-numbers">200</div>
-          <div class="tier-numbers-label">Numeros da Sorte</div>
+          <div class="tier-numbers-label">Números da Sorte</div>
         </div>
         <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +50 Caixas</div>
         <div class="tier-prices">
@@ -979,32 +997,26 @@
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="purchase-cta">
-      <a href="#" id="buyBtn" class="btn-primary" onclick="goToCheckout(event)">
-        <i class="fa-solid fa-cart-shopping"></i>COMPRAR
-      </a>
-    </div>
   </section>
 
   <!-- ========== ESPECIFICACOES TECNICAS ========== -->
   <section class="specs-section">
     <div class="specs-inner">
       <div class="specs-text">
-        <h2>Especificacoes Tecnicas</h2>
+        <h2>Especificações Técnicas</h2>
         <ul class="specs-list">
           <li><i class="fa-solid fa-circle-check"></i> Motor 5.7L V8 HEMI</li>
-          <li><i class="fa-solid fa-circle-check"></i> Potencia aproximada de 395 cv</li>
+          <li><i class="fa-solid fa-circle-check"></i> Potência aproximada de 395 cv</li>
           <li><i class="fa-solid fa-circle-check"></i> Torque em torno de 56,7 kgfm</li>
-          <li><i class="fa-solid fa-circle-check"></i> Transmissao automatica de 8 marchas</li>
-          <li><i class="fa-solid fa-circle-check"></i> Tracao 4x4</li>
+          <li><i class="fa-solid fa-circle-check"></i> Transmissão automática de 8 marchas</li>
+          <li><i class="fa-solid fa-circle-check"></i> Tração 4x4</li>
           <li><i class="fa-solid fa-circle-check"></i> Sistema mild-hybrid eTorque</li>
-          <li><i class="fa-solid fa-circle-check"></i> Suspensao off-road com amortecedores Bilstein</li>
+          <li><i class="fa-solid fa-circle-check"></i> Suspensão off-road com amortecedores Bilstein</li>
           <li><i class="fa-solid fa-circle-check"></i> Diferencial traseiro blocante</li>
           <li><i class="fa-solid fa-circle-check"></i> Altura do solo aproximada de 24 cm</li>
           <li><i class="fa-solid fa-circle-check"></i> Rodas aro 18" - Pneus All-Terrain</li>
-          <li><i class="fa-solid fa-circle-check"></i> Capacidade de reboque de ate cerca de 5.700 kg</li>
-          <li><i class="fa-solid fa-circle-check"></i> Picape grande com foco em off-road, forca e robustez</li>
+          <li><i class="fa-solid fa-circle-check"></i> Capacidade de reboque de até cerca de 5.700 kg</li>
+          <li><i class="fa-solid fa-circle-check"></i> Picape grande com foco em off-road, força e robustez</li>
         </ul>
       </div>
       <div class="specs-image">
@@ -1032,7 +1044,7 @@
   <!-- ========== GANHADORES ========== -->
   <section class="winners-section" id="ganhadores">
     <h2>Nossos Ganhadores</h2>
-    <p class="winners-subtitle">+R$5 milhoes em premios entregues!</p>
+    <p class="winners-subtitle">+R$5 milhões em prêmios entregues!</p>
     <div class="winners-grid">
       <img src="images/ganhadores-1.png" alt="Ganhadores">
       <img src="images/ganhadores-2.png" alt="Ganhadores">
@@ -1043,7 +1055,7 @@
   <!-- ========== FAQ ========== -->
   <section class="faq-section" id="faq">
     <div class="container">
-      <h2>FICOU COM DUVIDA?</h2>
+      <h2>FICOU COM DÚVIDA?</h2>
       <p class="faq-subtitle">Estamos aqui para ajudar!</p>
 
       <div class="faq-list">
@@ -1054,19 +1066,19 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Qualquer pessoa fisica brasileira, acima de 18 anos de idade, que aceite nossos Termos de Uso. Vendemos para todo o Brasil.
+              Qualquer pessoa física brasileira, acima de 18 anos de idade, que aceite nossos Termos de Uso. Vendemos para todo o Brasil.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            Esse Sorteio e Legal?
+            Esse Sorteio é Legal?
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Sim! Barone Premios e Bilhete Premiado de Pagamento Unico, emitidos pela LOTEP, inscrita no CNPJ sob no 09.300.922/0001-99. Os Premios sao pagos em dinheiro liquido, ou seja, voce recebe o valor ja livre de impostos.
+              Sim! Barone Prêmios é Bilhete Premiado de Pagamento Único, emitidos pela LOTEP, inscrita no CNPJ sob nº 09.300.922/0001-99. Os Prêmios são pagos em dinheiro líquido, ou seja, você recebe o valor já livre de impostos.
             </div>
           </div>
         </div>
@@ -1078,26 +1090,26 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Nao ha necessidade de se preocupar com os tramites relacionados a entrega do premio, pois nos cuidaremos de tudo.
+              Não há necessidade de se preocupar com os trâmites relacionados à entrega do prêmio, pois nós cuidaremos de tudo.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            ONDE O PREMIO SERA ENTREGUE?
+            ONDE O PRÊMIO SERÁ ENTREGUE?
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Nossa equipe entrara em contato com voce atraves do seu WhatsApp para fazer o pagamento do seu premio.
+              Nossa equipe entrará em contato com você através do seu WhatsApp para fazer o pagamento do seu prêmio.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            Tem outras duvidas?
+            Tem outras dúvidas?
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="faq-answer">
@@ -1139,14 +1151,14 @@
     <div class="footer-grid">
       <!-- Col 1: Logos -->
       <div class="footer-col footer-logo">
-        <img src="images/logo.webp" alt="Barone Premios">
+        <img src="images/logo.webp" alt="Barone Prêmios">
         <img src="images/lotep-branco.webp" alt="LOTEP" class="lotep">
       </div>
 
       <!-- Col 2: Grupos -->
       <div class="footer-col">
         <h3>Entre nos Grupos</h3>
-        <p><strong>Atendimento de segunda a sabado, das 09h as 19h</strong></p>
+        <p><strong>Atendimento de segunda a sábado, das 09h às 19h</strong></p>
         <br>
         <p>
           <a href="https://sendflow.pro/i/QhwHhkMG8yreSaRZOGpp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Grupo do WhatsApp</a>
@@ -1159,16 +1171,16 @@
         </p>
       </div>
 
-      <!-- Col 3: Sobre Nos -->
+      <!-- Col 3: Sobre Nós -->
       <div class="footer-col footer-links">
-        <h3>Sobre Nos</h3>
-        <a href="#sobre">Sobre Nos</a>
+        <h3>Sobre Nós</h3>
+        <a href="#sobre">Sobre Nós</a>
         <a href="#ganhadores">Ganhadores</a>
         <a href="#contato">Fale Conosco</a>
         <a href="#termos">Termos de Uso</a>
         <a href="#ajuda">Ajuda</a>
         <a href="#regulamento">Regulamento</a>
-        <a href="#jogo-responsavel">Jogo Responsavel</a>
+        <a href="#jogo-responsavel">Jogo Responsável</a>
       </div>
 
       <!-- Col 4: Redes Sociais -->
@@ -1184,24 +1196,24 @@
     <hr class="footer-divider">
 
     <div class="footer-copyright">
-      2025 - Barone Premios
+      2025 - Barone Prêmios
     </div>
 
     <hr class="footer-divider" style="margin-top: 0;">
 
     <div class="footer-legal">
-      Se voce ou alguem que voce conhece esta enfrentando problemas com o jogo, ha recursos disponiveis para oferecer suporte:
+      Se você ou alguém que você conhece está enfrentando problemas com o jogo, há recursos disponíveis para oferecer suporte:
       <br><br>
-      <strong>Jogadores Anonimos Brasil:</strong> Um grupo de apoio para pessoas que enfrentam problemas com jogos de azar.
+      <strong>Jogadores Anônimos Brasil:</strong> Um grupo de apoio para pessoas que enfrentam problemas com jogos de azar.
       Visite <a href="https://www.jogadoresanonimos.org.br" target="_blank">www.jogadoresanonimos.org.br</a>
       <br><br>
-      <strong>Centro de Apoio Psicossocial Alcool e Drogas (CAPS AD):</strong> Oferece atendimento para pessoas com problemas relacionados ao uso de substancias e comportamentos compulsivos, incluindo jogos.
+      <strong>Centro de Apoio Psicossocial Álcool e Drogas (CAPS AD):</strong> Oferece atendimento para pessoas com problemas relacionados ao uso de substâncias e comportamentos compulsivos, incluindo jogos.
       <br><br>
-      <strong>Viva Voz:</strong> Servico de atendimento telefonico para orientacao e apoio. Ligue para <strong>132</strong>.
+      <strong>Viva Voz:</strong> Serviço de atendimento telefônico para orientação e apoio. Ligue para <strong>132</strong>.
       <br><br>
-      Lembre-se, o jogo responsavel e a chave para uma experiencia divertida e segura.
+      Lembre-se, o jogo responsável é a chave para uma experiência divertida e segura.
       <br><br>
-      Este bilhete de loteria esta autorizado com base na portaria AUTORIZACAO LOTEP LTP-PRC-2025/02053 - Barone Premios.
+      Este bilhete de loteria está autorizado com base na portaria AUTORIZAÇÃO LOTEP LTP-PRC-2025/02053 - Barone Prêmios.
       <br><br>
       Imagens meramente ilustrativas
     </div>
@@ -1278,6 +1290,12 @@
       el.classList.add('selected');
       selectedTier = el.dataset.tier;
       currentQty = tiers[selectedTier].qty;
+      // Redireciona direto para o checkout
+      const checkoutUrl = 'https://checkout.baronepremios.com.br/';
+      const params = new URLSearchParams();
+      params.set('qty', currentQty);
+      params.set('pacote', selectedTier);
+      window.open(checkoutUrl + '?' + params.toString(), '_blank');
     }
 
     function goToCheckout(e) {
