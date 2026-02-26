@@ -1,414 +1,722 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barone Prêmios - Concorra a Prêmios Incríveis</title>
+  <title>Barone Prêmios - Concorra a uma RAM 1500 Rebel</title>
+  <meta name="description" content="Concorra a uma RAM 1500 Rebel! Escolha seu pacote, garanta seus números e mude sua vida.">
   <link rel="icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;700&family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;700&family=Montserrat:wght@400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* ========== RESET & BASE ========== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ========== RESET ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', Arial, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'DM Sans', Arial, sans-serif;
-      background-color: #ffffff;
-      color: #000;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    /* ========== CSS VARIABLES ========== */
+    /* ========== VARIABLES ========== */
     :root {
       --green-dark: #103200;
       --green-medium: #236a00;
       --green-bright: #01b701;
       --green-light: #00df00;
+      --green-glow: rgba(0, 223, 0, 0.3);
       --gold: #f4c24c;
+      --red-urgent: #e63946;
       --white: #ffffff;
       --black: #000000;
-      --gray-light: #f3f3f3;
-      --off-white: #f5f2ef;
-
-      --gradient-header: linear-gradient(0deg, #103200 0%, #236a00 100%);
-      --gradient-green-h: linear-gradient(90deg, #236a00 0%, #103200 100%);
-      --gradient-btn: linear-gradient(90deg, #01b701 0%, #00df00 100%);
-      --gradient-btn-hover: linear-gradient(90deg, #b9db4a 0%, #ccf155 100%);
-      --gradient-green-bright: linear-gradient(90deg, #007310 0%, #33af16 100%);
-
-      --max-width: 960px;
+      --dark-bg: #0a0a0a;
+      --dark-card: #141414;
+      --dark-card-2: #1a1a1a;
+      --gradient-btn: linear-gradient(180deg, #01b701 0%, #008a00 100%);
+      --gradient-btn-hover: linear-gradient(180deg, #00df00 0%, #01b701 100%);
+      --gradient-green-dark: linear-gradient(180deg, #0d2b00 0%, #0a0a0a 100%);
+      --max-width: 1000px;
       --max-width-wide: 1200px;
     }
 
     /* ========== UTILITY ========== */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .container-wide {
-      max-width: var(--max-width-wide);
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .flex-center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: var(--max-width-wide); margin: 0 auto; padding: 0 24px; }
+    .text-center { text-align: center; }
 
     /* ========== BUTTONS ========== */
-    .btn-primary {
+    .btn-cta {
       display: inline-block;
       background: var(--gradient-btn);
       color: var(--white);
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 24px;
-      padding: 14px 50px;
-      border-radius: 16px;
+      padding: 20px 50px;
+      border-radius: 14px;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 25px var(--green-glow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    .btn-primary:hover {
+    .btn-cta::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-cta:hover::after { left: 100%; }
+    .btn-cta:hover {
       background: var(--gradient-btn-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 223, 0, 0.3);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 35px var(--green-glow);
+    }
+    .btn-cta i { margin-right: 10px; }
+
+    .btn-cta-gold {
+      background: linear-gradient(180deg, #f4c24c 0%, #d4a030 100%);
+      color: #000;
+      box-shadow: 0 4px 25px rgba(244, 194, 76, 0.3);
+    }
+    .btn-cta-gold:hover {
+      background: linear-gradient(180deg, #ffd666 0%, #f4c24c 100%);
+      box-shadow: 0 8px 35px rgba(244, 194, 76, 0.4);
     }
 
-    /* ========== HERO ========== */
+    /* ========== FLOATING STICKY BOTTOM CTA (LMCT+ Pattern) ========== */
+    .sticky-bottom-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(180deg, rgba(16,50,0,0.97) 0%, rgba(10,10,10,0.99) 100%);
+      backdrop-filter: blur(12px);
+      padding: 14px 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-top: 2px solid var(--green-bright);
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.8);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .sticky-bottom-cta.visible { transform: translateY(0); }
+    .sticky-bottom-cta .sticky-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .sticky-bottom-cta .sticky-text span { color: var(--green-light); }
+    .sticky-bottom-cta .btn-cta {
+      font-size: 16px;
+      padding: 12px 30px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    /* ========== HEADER BAR ========== */
+    .top-bar {
+      background: linear-gradient(180deg, #0d2b00 0%, #103200 100%);
+      padding: 14px 0;
+      text-align: center;
+      border-bottom: 2px solid rgba(0,223,0,0.15);
+      position: relative;
+      z-index: 100;
+    }
+    .top-bar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar img { max-width: 150px; }
+    .top-bar-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .top-bar-badges img { height: 36px; width: auto; border-radius: 6px; }
+
+    /* ========== HERO (LMCT+ inspired — big impact) ========== */
     .hero {
       position: relative;
+      background: var(--dark-bg);
+      overflow: hidden;
+    }
+    .hero-banner { width: 100%; position: relative; }
+    .hero-banner img { width: 100%; display: block; }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+      pointer-events: none;
     }
 
-    .hero-banner {
+    .hero-content {
+      text-align: center;
+      padding: 20px 24px 40px;
       position: relative;
-      width: 100%;
-      display: block;
+      z-index: 2;
     }
-
-    .hero-banner img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--green-light);
+      margin-bottom: 8px;
     }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .hero-title span { color: var(--green-light); }
+    .hero-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-prize-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,223,0,0.08);
+      border: 1px solid rgba(0,223,0,0.2);
+      border-radius: 50px;
+      padding: 8px 24px;
+      margin-bottom: 24px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green-light);
+      letter-spacing: 1px;
+    }
+    .hero-prize-tag i { font-size: 18px; }
 
-    .hero-banner .btn-primary {
-      display: block;
-      margin: 30px auto 0;
-      font-size: 32px;
-      padding: 22px 60px;
-      width: fit-content;
+    .hero-cta-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-cta-wrapper .btn-cta { font-size: 26px; padding: 22px 55px; }
+    .hero-micro-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero-micro-text i { color: var(--green-light); margin-right: 4px; }
+
+    /* ========== SOCIAL PROOF TICKER (LMCT+ pattern) ========== */
+    .social-proof-bar {
+      background: var(--dark-card);
+      border-top: 1px solid rgba(0,223,0,0.1);
+      border-bottom: 1px solid rgba(0,223,0,0.1);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .proof-ticker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      white-space: nowrap;
+    }
+    .proof-item i { color: var(--green-light); font-size: 18px; }
+    .proof-item strong { color: var(--white); font-size: 18px; }
+
+    /* ========== URGENCY BAR ========== */
+    .urgency-bar {
+      background: var(--red-urgent);
+      padding: 14px 0;
       text-align: center;
-      max-width: 90%;
+      position: relative;
+      overflow: hidden;
     }
-
-    /* ========== PURCHASE SECTION ========== */
-    .purchase-section {
-      background: #ffffff;
-      padding: 80px 0;
-      text-align: center;
+    .urgency-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 200%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+      animation: urgencyShine 3s ease-in-out infinite;
     }
-
-    .purchase-section h2 {
+    @keyframes urgencyShine {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(50%); }
+    }
+    .urgency-text {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 48px;
-      color: var(--black);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .urgency-text i { margin-right: 8px; animation: pulse 1s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* ========== SELECT A PACKAGE heading (LMCT+ pattern) ========== */
+    .select-package-header {
+      background: linear-gradient(180deg, #0a0a0a 0%, #0d2b00 100%);
+      padding: 60px 0 10px;
+      text-align: center;
+    }
+    .select-package-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 42px;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-
-    .purchase-section .purchase-subtitle {
+    .select-package-header h2 span { color: var(--green-light); }
+    .select-package-header p {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: #555;
-      margin-bottom: 50px;
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    /* Tier List */
+    /* ========== PACKAGES / TIERS ========== */
+    .packages-section {
+      background: linear-gradient(180deg, #0d2b00 0%, #0a0a0a 100%);
+      padding: 40px 0 70px;
+      text-align: center;
+    }
+    .packages-subtitle-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--green-light);
+      margin-top: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .packages-subtitle-link:hover { opacity: 0.8; }
+    .packages-subtitle-link i { font-size: 12px; }
+
     .tier-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 650px;
-      margin: 0 auto 40px;
-      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
     .tier-card {
-      border-radius: 12px;
-      padding: 16px 24px;
+      background: var(--dark-card);
+      border: 2px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 30px 20px 24px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
       position: relative;
       overflow: hidden;
-      border: 3px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      text-align: center;
     }
-
+    .tier-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.3s;
+    }
     .tier-card:hover {
-      transform: translateX(4px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transform: translateY(-8px);
+      border-color: rgba(0,223,0,0.3);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.6);
     }
-
+    .tier-card:hover::before { background: var(--green-bright); }
     .tier-card.selected {
       border-color: var(--green-light);
-      box-shadow: 0 0 20px rgba(0, 223, 0, 0.35);
+      box-shadow: 0 0 40px var(--green-glow);
     }
-
-    /* Basico */
-    .tier-basico {
-      background: linear-gradient(90deg, #b0c4d8 0%, #d6e4f0 100%);
+    .tier-card.popular {
+      border-color: var(--gold);
+      box-shadow: 0 0 30px rgba(244, 194, 76, 0.15);
     }
-    .tier-basico, .tier-basico * { color: #1a2a3a; }
+    .tier-card.popular::before { background: var(--gold); height: 3px; }
 
-    /* Silver */
-    .tier-silver {
-      background: linear-gradient(90deg, #a8a8a8 0%, #d4d4d4 100%);
-    }
-    .tier-silver, .tier-silver * { color: #1a1a2e; }
-
-    /* Gold */
-    .tier-gold {
-      background: linear-gradient(90deg, #c9a227 0%, #f5d76e 100%);
-    }
-    .tier-gold, .tier-gold * { color: #2a1f00; }
-
-    .tier-check {
-      display: none;
-      width: 28px;
-      height: 28px;
-      background: var(--green-light);
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
+    .tier-popular-badge {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
       font-size: 13px;
-      flex-shrink: 0;
+      padding: 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
+    .tier-card.popular { padding-top: 54px; }
 
-    .tier-card.selected .tier-check {
-      display: flex;
-    }
-
-    .tier-radio {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 3px solid rgba(0,0,0,0.2);
-      flex-shrink: 0;
-    }
-
-    .tier-card.selected .tier-radio {
-      display: none;
+    .tier-discount {
+      display: inline-block;
+      background: var(--red-urgent);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
     }
 
     .tier-name {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 26px;
       text-transform: uppercase;
-      min-width: 80px;
+      color: #fff;
+      margin-bottom: 6px;
     }
+    .tier-basico .tier-name { color: #b0c4d8; }
+    .tier-silver .tier-name { color: #d4d4d4; }
+    .tier-gold .tier-name { color: var(--gold); }
 
     .tier-numbers {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 50px;
+      color: var(--green-light);
       line-height: 1;
-      white-space: nowrap;
+      margin: 8px 0 4px;
     }
-
     .tier-numbers-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      opacity: 0.6;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
     }
 
     .tier-bonus {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      background: rgba(0,223,0,0.1);
+      border: 1px solid rgba(0,223,0,0.2);
+      color: var(--green-light);
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 4px 10px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 20px;
-      white-space: nowrap;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
     }
 
-    .tier-bonus i {
-      color: #2196F3;
-    }
-
-    .tier-prices {
-      margin-left: auto;
-      text-align: right;
-      flex-shrink: 0;
+    .tier-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 0 0 16px;
     }
 
     .tier-original {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-size: 16px;
       text-decoration: line-through;
-      opacity: 0.5;
+      color: rgba(255,255,255,0.35);
     }
-
     .tier-price {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 26px;
+      font-size: 34px;
+      color: #fff;
+      margin: 4px 0 16px;
     }
 
-    .tier-badge {
-      position: absolute;
-      top: -1px;
-      right: 16px;
-      background: #e63946;
-      color: var(--white) !important;
+    .tier-select-btn {
+      display: block;
+      width: 100%;
+      background: var(--gradient-btn);
+      color: #fff;
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 11px;
-      padding: 3px 10px 5px;
-      border-radius: 0 0 8px 8px;
-      z-index: 2;
-    }
-
-    /* Purchase CTA */
-    .purchase-cta {
-      margin-top: 10px;
-    }
-
-    .purchase-cta .btn-primary {
-      font-size: 42px;
-      padding: 28px 140px;
+      font-size: 17px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
       position: relative;
+      overflow: hidden;
+    }
+    .tier-select-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.4s;
+    }
+    .tier-select-btn:hover::after { left: 100%; }
+    .tier-select-btn:hover {
+      background: var(--gradient-btn-hover);
+      box-shadow: 0 4px 20px var(--green-glow);
     }
 
-    .purchase-cta .btn-primary i {
-      margin-right: 10px;
+    /* ========== AUTO-ENTRY MESSAGE (LMCT+ pattern) ========== */
+    .auto-entry-section {
+      background: var(--dark-bg);
+      padding: 50px 0;
+      text-align: center;
+    }
+    .auto-entry-section h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      text-transform: uppercase;
+      max-width: 600px;
+      margin: 0 auto 24px;
+      line-height: 1.2;
+    }
+    .auto-entry-section h3 span { color: var(--green-light); }
+    .auto-entry-section p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    .purchase-cta .btn-primary.disabled {
-      background: #444;
-      cursor: not-allowed;
-      opacity: 0.5;
+    /* ========== TRUST BADGES ========== */
+    .trust-section {
+      background: var(--dark-card);
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 22px;
+    }
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.7);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .trust-badge i { font-size: 26px; color: var(--green-light); }
+
+    /* ========== COUNTDOWN ========== */
+    .countdown-section {
+      background: var(--dark-bg);
+      padding: 55px 0;
+      text-align: center;
+    }
+    .countdown-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .countdown-item {
+      background: var(--dark-card-2);
+      border: 1px solid rgba(0,223,0,0.15);
+      border-radius: 14px;
+      padding: 18px 22px;
+      min-width: 90px;
+      text-align: center;
+    }
+    .countdown-item .number {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 46px;
+      color: var(--green-light);
+      line-height: 1;
+    }
+    .countdown-item .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 2px;
+      margin-top: 6px;
     }
 
-    .purchase-cta .btn-primary.disabled:hover {
-      background: #444;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* ========== SPECS + RAM CAROUSEL ========== */
-    .specs-section {
-      background: #ffffff;
+    /* ========== GIVEAWAY DETAILS (LMCT+ pattern) ========== */
+    .giveaway-details {
+      background: linear-gradient(180deg, #0a0a0a 0%, #0d2b00 50%, #0a0a0a 100%);
       padding: 80px 0;
     }
+    .giveaway-details h2 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 44px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .giveaway-details h2 span { color: var(--green-light); }
+    .giveaway-details .section-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .detail-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 30px 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .detail-card:hover {
+      border-color: rgba(0,223,0,0.2);
+      transform: translateY(-4px);
+    }
+    .detail-card .detail-icon {
+      width: 56px; height: 56px;
+      background: rgba(0,223,0,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+      color: var(--green-light);
+    }
+    .detail-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .detail-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ========== CTA REPEAT ========== */
+    .cta-section {
+      background: var(--dark-bg);
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    /* ========== SPECS ========== */
+    .specs-section {
+      background: var(--dark-card);
+      padding: 80px 0;
+    }
     .specs-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 24px;
       display: flex;
       align-items: flex-start;
       gap: 50px;
     }
-
-    .specs-text {
-      flex: 1;
-      min-width: 0;
-    }
-
+    .specs-text { flex: 1; min-width: 0; }
     .specs-text h2 {
-      font-family: 'Bebas Neue', 'Oswald', sans-serif;
-      font-weight: 400;
-      font-size: 56px;
-      color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: #fff;
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-bottom: 24px;
     }
-
-    .specs-list {
-      list-style: none;
-    }
-
+    .specs-text h2 span { color: var(--green-light); }
     .specs-list li {
       font-family: 'Oswald', sans-serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
-      color: #111;
-      padding: 10px 0;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
+      color: rgba(255,255,255,0.85);
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       display: flex;
       align-items: baseline;
       gap: 10px;
     }
+    .specs-list li i { color: var(--green-light); font-size: 13px; flex-shrink: 0; }
+    .specs-image { flex: 1; min-width: 0; }
+    .specs-image img { width: 100%; border-radius: 18px; }
 
-    .specs-list li i {
-      color: var(--green-dark);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    .specs-image {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .specs-image img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    /* RAM Carousel */
+    /* ========== RAM CAROUSEL ========== */
     .ram-carousel-section {
-      background: #ffffff;
+      background: var(--dark-bg);
       padding: 60px 0;
     }
-
     .carousel-wrapper {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -416,31 +724,26 @@
       overflow: hidden;
       padding: 0 60px;
     }
-
     .carousel-track {
       display: flex;
       transition: transform 0.4s ease;
-      gap: 16px;
+      gap: 14px;
     }
-
     .carousel-track img {
-      flex: 0 0 calc(33.333% - 11px);
-      width: calc(33.333% - 11px);
-      border-radius: 12px;
+      flex: 0 0 calc(33.333% - 10px);
+      width: calc(33.333% - 10px);
+      border-radius: 14px;
       object-fit: cover;
       aspect-ratio: 4/3;
     }
-
     .carousel-btn {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
+      top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
       border-radius: 50%;
       border: none;
       background: var(--gradient-btn);
-      color: var(--white);
+      color: #fff;
       font-size: 18px;
       cursor: pointer;
       z-index: 5;
@@ -449,561 +752,573 @@
       justify-content: center;
       transition: all 0.2s;
     }
-
     .carousel-btn:hover {
       background: var(--gradient-btn-hover);
       transform: translateY(-50%) scale(1.1);
     }
-
     .carousel-btn.prev { left: 10px; }
     .carousel-btn.next { right: 10px; }
 
-    /* ========== WINNERS / GANHADORES ========== */
+    /* ========== THIS COULD BE YOU / WINNERS (LMCT+ pattern) ========== */
     .winners-section {
-      background: #ffffff;
+      background: var(--dark-bg);
       padding: 80px 0;
     }
-
     .winners-section h2 {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 48px;
-      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 44px;
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
     }
-
+    .winners-section h2 span { color: var(--green-light); }
     .winners-subtitle {
       font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      color: #555;
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
       text-align: center;
       margin-bottom: 50px;
     }
-
     .winners-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      max-width: 700px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 24px;
     }
-
-    .winners-grid img {
-      width: 100%;
+    .winner-card {
       border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
     }
+    .winner-card:hover { transform: scale(1.03); }
+    .winner-card img { width: 100%; display: block; }
 
     /* ========== FAQ ========== */
     .faq-section {
-      background: #ffffff;
+      background: var(--dark-card);
       padding: 80px 0;
     }
-
     .faq-section h2 {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 60px;
-      color: var(--black);
+      font-size: 44px;
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
     }
-
-    .faq-section .faq-subtitle {
+    .faq-section h2 span { color: var(--green-light); }
+    .faq-subtitle {
       font-family: 'DM Sans', sans-serif;
-      font-size: 22px;
-      color: #333;
+      font-size: 17px;
+      color: rgba(255,255,255,0.5);
       text-align: center;
-      font-weight: 700;
       margin-bottom: 50px;
     }
-
     .faq-list {
       max-width: 700px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 24px;
     }
-
     .faq-item {
-      background: #f5f5f5;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      background: var(--dark-card-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      margin-bottom: 10px;
       overflow: hidden;
-      border: 1px solid #e0e0e0;
+      transition: border-color 0.3s;
     }
-
+    .faq-item:hover { border-color: rgba(0,223,0,0.15); }
     .faq-question {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 20px 24px;
       cursor: pointer;
-      color: #111;
+      color: #fff;
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       font-weight: 700;
       transition: background 0.2s;
     }
-
-    .faq-question:hover {
-      background: #eee;
-    }
-
+    .faq-question:hover { background: rgba(255,255,255,0.02); }
     .faq-question .arrow {
       font-size: 14px;
       transition: transform 0.3s;
       flex-shrink: 0;
       margin-left: 16px;
+      color: var(--green-light);
     }
-
-    .faq-item.open .faq-question .arrow {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
+    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     .faq-answer-inner {
       padding: 0 24px 20px;
-      color: #444;
+      color: rgba(255,255,255,0.6);
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-    }
+    .faq-item.open .faq-answer { max-height: 300px; }
 
     /* ========== INSTAGRAM ========== */
     .insta-section {
-      background: var(--white);
+      background: var(--dark-bg);
       padding: 80px 0;
       text-align: center;
     }
-
     .insta-section h2 {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 60px;
+      font-size: 44px;
       margin-bottom: 40px;
     }
-
-    .insta-section h2 span.black {
-      color: var(--black);
-    }
-
-    .insta-section h2 span.green {
-      color: #194e00;
-    }
-
+    .insta-section h2 span.green { color: var(--green-light); }
     .insta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       max-width: var(--max-width);
       margin: 0 auto 40px;
-      padding: 0 40px;
+      padding: 0 24px;
     }
-
     .insta-grid a {
       display: block;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 12px;
       aspect-ratio: 1;
     }
-
     .insta-grid a img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
+    .insta-grid a:hover img { transform: scale(1.08); }
 
-    .insta-grid a:hover img {
-      transform: scale(1.08);
+    /* ========== FINAL CTA (LMCT+ pattern — strong) ========== */
+    .final-cta {
+      background: linear-gradient(180deg, #0d2b00 0%, #103200 50%, #0d2b00 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, rgba(0,223,0,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .final-cta h2 span { color: var(--green-light); }
+    .final-cta p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 30px;
+      position: relative;
     }
 
     /* ========== FOOTER ========== */
     .footer {
-      background: #ffffff;
+      background: var(--dark-card);
       padding: 60px 0 0;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: 3fr 4fr 3fr 2fr;
       gap: 30px;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 24px;
     }
-
     .footer-col h3 {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 24px;
-      color: var(--green-dark);
+      font-size: 20px;
+      color: var(--green-light);
       margin-bottom: 16px;
     }
-
-    .footer-col p,
-    .footer-col a {
-      color: #333;
+    .footer-col p, .footer-col a {
+      color: rgba(255,255,255,0.6);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       line-height: 1.8;
     }
-
-    .footer-col a:hover {
-      color: var(--green-bright);
-    }
-
-    .footer-logo {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .footer-logo img {
-      max-width: 180px;
-    }
-
-    .footer-logo img.lotep {
-      max-width: 160px;
-      opacity: 0.9;
-    }
-
-    .footer-links a {
-      display: block;
-      padding: 3px 0;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
+    .footer-col a:hover { color: var(--green-light); }
+    .footer-logo { display: flex; flex-direction: column; gap: 18px; }
+    .footer-logo img { max-width: 170px; }
+    .footer-logo img.lotep { max-width: 150px; opacity: 0.75; }
+    .footer-links a { display: block; padding: 3px 0; }
+    .footer-social { display: flex; gap: 10px; margin-top: 8px; }
     .footer-social a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border-radius: 50%;
-      background: #f0f0f0;
+      background: rgba(255,255,255,0.06);
       font-size: 18px;
-      transition: background 0.2s;
+      color: rgba(255,255,255,0.65);
+      transition: all 0.2s;
     }
-
-    .footer-social a:hover {
-      background: rgba(0,0,0,0.1);
-    }
-
+    .footer-social a:hover { background: var(--green-bright); color: #fff; }
     .footer-divider {
       border: none;
-      border-top: 1px solid rgba(0,0,0,0.15);
+      border-top: 1px solid rgba(255,255,255,0.06);
       margin: 40px auto 0;
       max-width: var(--max-width);
     }
-
     .footer-copyright {
       text-align: center;
       padding: 20px 0;
-      color: #222;
+      color: rgba(255,255,255,0.45);
       font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
     }
-
     .footer-legal {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 20px 40px 30px;
-      color: rgba(0,0,0,0.55);
+      padding: 20px 24px 30px;
+      color: rgba(255,255,255,0.3);
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       line-height: 1.8;
       text-align: center;
     }
+    .footer-legal a { color: rgba(255,255,255,0.45); text-decoration: underline; }
+    .footer-powered { text-align: center; padding: 20px 0 30px; }
+    .footer-powered img { max-width: 120px; margin: 0 auto; opacity: 0.55; }
 
-    .footer-legal a {
-      color: rgba(0,0,0,0.75);
-      text-decoration: underline;
-    }
-
-    .footer-powered {
-      text-align: center;
-      padding: 20px 0 30px;
-    }
-
-    .footer-powered img {
-      max-width: 130px;
-      margin: 0 auto;
-      opacity: 0.8;
-    }
-
-    /* ========== BOTTOM NAV (MOBILE) ========== */
-    .bottom-nav {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--green-dark);
-      z-index: 1000;
-      padding: 8px 0 12px;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
-    }
-
-    .bottom-nav-inner {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .bottom-nav a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: rgba(255,255,255,0.7);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      gap: 4px;
-      transition: color 0.2s;
-    }
-
-    .bottom-nav a:hover,
-    .bottom-nav a.active {
-      color: var(--white);
-    }
-
-    .bottom-nav a i {
-      font-size: 20px;
-    }
-
-    .bottom-nav a.buy-btn {
-      background: var(--gradient-btn);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 12px;
-      flex-direction: row;
-      gap: 6px;
-    }
+    /* Padding bottom for sticky CTA */
+    body { padding-bottom: 70px; }
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 1024px) {
-      .hero-banner .btn-primary {
-        font-size: 26px;
-        padding: 18px 50px;
-      }
+      .hero-title { font-size: 38px; }
+      .tier-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
     }
 
     @media (max-width: 768px) {
-      .purchase-section h2 {
-        font-size: 32px;
-      }
+      .hero-title { font-size: 30px; }
+      .hero-subtitle { font-size: 16px; }
+      .hero-cta-wrapper .btn-cta { font-size: 20px; padding: 18px 40px; }
+      .btn-cta { font-size: 18px; padding: 16px 36px; }
 
+      .top-bar-inner { flex-direction: column; gap: 10px; }
+      .top-bar-badges { gap: 6px; }
+      .top-bar-badges img { height: 28px; }
+
+      .select-package-header h2 { font-size: 30px; }
       .tier-grid {
-        padding: 0 16px;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        gap: 14px;
       }
+      .tier-numbers { font-size: 42px; }
+      .tier-price { font-size: 28px; }
 
-      .tier-card {
-        padding: 14px 16px;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
+      .countdown { gap: 10px; }
+      .countdown-item { min-width: 70px; padding: 14px; }
+      .countdown-item .number { font-size: 36px; }
 
-      .tier-name { font-size: 16px; min-width: 55px; }
-      .tier-numbers { font-size: 20px; }
-      .tier-numbers-label { font-size: 10px; }
-      .tier-price { font-size: 18px; }
-      .tier-bonus { font-size: 10px; padding: 3px 7px; }
-      .tier-original { font-size: 10px; }
-
-      .purchase-cta .btn-primary {
-        font-size: 20px;
-        padding: 16px 50px;
-      }
-
-      .specs-inner {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .specs-text h2 { font-size: 32px; }
+      .specs-inner { flex-direction: column; gap: 30px; }
+      .specs-text h2 { font-size: 36px; }
 
       .carousel-track img {
-        flex: 0 0 calc(50% - 8px);
-        width: calc(50% - 8px);
+        flex: 0 0 calc(50% - 7px);
+        width: calc(50% - 7px);
       }
+      .carousel-wrapper { padding: 0 50px; }
 
-      .winners-grid {
-        padding: 0 20px;
-      }
+      .details-grid { grid-template-columns: 1fr; max-width: 400px; }
 
-      .winners-section h2 { font-size: 36px; }
+      .giveaway-details h2 { font-size: 30px; }
+      .winners-section h2 { font-size: 30px; }
+      .winners-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .faq-section h2 { font-size: 30px; }
+      .insta-section h2 { font-size: 30px; }
+      .final-cta h2 { font-size: 26px; }
 
-      .carousel-wrapper {
-        padding: 0 50px;
-      }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .faq-section h2,
-      .insta-section h2 {
-        font-size: 36px;
-      }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-logo { align-items: center; }
+      .footer-social { justify-content: center; }
 
-      .insta-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .proof-ticker { gap: 20px; }
+      .proof-item { font-size: 13px; }
+      .proof-item strong { font-size: 16px; }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .sticky-bottom-cta .sticky-text { font-size: 13px; }
+      .sticky-bottom-cta .btn-cta { font-size: 14px; padding: 10px 20px; }
 
-      .footer-logo {
-        align-items: center;
-      }
-
-      .footer-social {
-        justify-content: center;
-      }
-
-      .btn-primary {
-        font-size: 16px;
-        padding: 12px 36px;
-      }
-
-      .bottom-nav {
-        display: block;
-      }
-
-      body {
-        padding-bottom: 70px;
-      }
-
-      .container, .container-wide {
-        padding: 0 20px;
-      }
+      .auto-entry-section h3 { font-size: 22px; }
     }
 
     @media (max-width: 480px) {
-      .hero-banner .btn-primary {
-        font-size: 18px;
-        padding: 16px 30px;
-      }
+      .hero-title { font-size: 26px; }
+      .hero-cta-wrapper .btn-cta { font-size: 17px; padding: 16px 30px; letter-spacing: 1px; }
+      .btn-cta { font-size: 15px; padding: 14px 28px; }
+      .urgency-text { font-size: 13px; letter-spacing: 1px; }
+      .hero-eyebrow { font-size: 12px; letter-spacing: 3px; }
+      .hero-prize-tag { font-size: 13px; padding: 6px 18px; }
 
-      .tier-card {
-        padding: 12px 12px;
-        gap: 8px;
-      }
+      .tier-grid { max-width: 100%; padding: 0 16px; }
+      .tier-card { padding: 24px 16px 20px; }
+      .tier-card.popular { padding-top: 48px; }
+      .tier-name { font-size: 22px; }
+      .tier-numbers { font-size: 36px; }
+      .tier-price { font-size: 26px; }
 
-      .tier-radio, .tier-check { width: 22px; height: 22px; font-size: 11px; }
-      .tier-name { font-size: 14px; min-width: 50px; }
-      .tier-numbers { font-size: 18px; }
-      .tier-numbers-label { font-size: 9px; }
-      .tier-price { font-size: 16px; }
-      .tier-bonus { font-size: 9px; padding: 2px 6px; }
-      .tier-original { font-size: 9px; }
-      .tier-badge { font-size: 9px; padding: 2px 7px 3px; }
+      .countdown-item { min-width: 60px; padding: 10px; }
+      .countdown-item .number { font-size: 28px; }
+      .countdown-item .label { font-size: 10px; }
 
-      .faq-section,
-      .insta-section {
-        padding: 50px 0;
-      }
+      .specs-text h2 { font-size: 28px; }
+      .winners-grid { padding: 0 16px; }
+
+      .sticky-bottom-cta { flex-direction: column; gap: 8px; padding: 10px 16px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- ========== STICKY BOTTOM CTA (LMCT+ Pattern) ========== -->
+  <div class="sticky-bottom-cta" id="stickyBar">
+    <span class="sticky-text"><i class="fa-solid fa-trophy"></i> CONCORRA À <span>RAM 1500 REBEL</span></span>
+    <a href="#pacotes" class="btn-cta">
+      <i class="fa-solid fa-bolt"></i>GARANTIR MEUS NÚMEROS
+    </a>
+  </div>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <img src="images/logo.webp" alt="Barone Prêmios">
+      <div class="top-bar-badges">
+        <img src="images/badge-1.webp" alt="Certificado">
+        <img src="images/badge-2.webp" alt="Certificado">
+        <img src="images/badge-3.webp" alt="Certificado">
+      </div>
+    </div>
+  </div>
+
   <!-- ========== HERO ========== -->
   <section class="hero">
     <div class="hero-banner">
-      <img src="images/banner-hero.png" alt="BMW R1200 GS - Concorra agora">
-      <a href="#comprar" class="btn-primary">QUERO GANHAR A RAM DOS SONHOS</a>
+      <img src="images/banner-hero.png" alt="RAM 1500 Rebel - Concorra agora">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Sorteio autorizado LOTEP</div>
+      <h1 class="hero-title">CONCORRA A UMA <span>RAM 1500 REBEL</span></h1>
+      <p class="hero-subtitle">Escolha seu pacote, garanta seus números e concorra ao prêmio dos sonhos!</p>
+      <div class="hero-prize-tag">
+        <i class="fa-solid fa-trophy"></i>
+        PRÊMIO AVALIADO EM MAIS DE R$500.000
+      </div>
+      <div class="hero-cta-wrapper">
+        <a href="#pacotes" class="btn-cta">
+          <i class="fa-solid fa-bolt"></i>QUERO GANHAR A RAM DOS SONHOS
+        </a>
+        <span class="hero-micro-text"><i class="fa-solid fa-shield-halved"></i> Compra 100% segura • Sorteio pela Loteria Federal</span>
+      </div>
     </div>
   </section>
 
-  <!-- ========== COMPRA DE NUMEROS ========== -->
-  <section class="purchase-section" id="comprar">
-    <div class="container">
-      <h2>GARANTA SEUS NÚMEROS DA SORTE</h2>
-      <p class="purchase-subtitle">Escolha seu pacote e aumente suas chances de ganhar!</p>
+  <!-- ========== SOCIAL PROOF TICKER ========== -->
+  <div class="social-proof-bar">
+    <div class="proof-ticker">
+      <div class="proof-item">
+        <i class="fa-solid fa-users"></i>
+        <span><strong>12.847+</strong> participantes</span>
+      </div>
+      <div class="proof-item">
+        <i class="fa-solid fa-gift"></i>
+        <span><strong>R$5M+</strong> em prêmios entregues</span>
+      </div>
+      <div class="proof-item">
+        <i class="fa-solid fa-star"></i>
+        <span><strong>4.9/5</strong> avaliação</span>
+      </div>
+      <div class="proof-item">
+        <i class="fa-solid fa-bolt"></i>
+        <span><strong>32</strong> compraram na última hora</span>
+      </div>
     </div>
+  </div>
 
-    <!-- Tier List -->
+  <!-- ========== URGENCY BAR ========== -->
+  <div class="urgency-bar">
+    <div class="urgency-text">
+      <i class="fa-solid fa-bolt"></i> CORRA! SORTEIO SE APROXIMA — GARANTA SEU NÚMERO AGORA!
+    </div>
+  </div>
+
+  <!-- ========== SELECT A PACKAGE (LMCT+ pattern) ========== -->
+  <section class="select-package-header" id="pacotes">
+    <div class="container">
+      <h2>ESCOLHA SEU <span>PACOTE</span></h2>
+      <p>Compre qualquer pacote e seu nome entra automaticamente no sorteio da RAM 1500 Rebel!</p>
+    </div>
+  </section>
+
+  <!-- ========== PACKAGES ========== -->
+  <section class="packages-section">
     <div class="tier-grid">
       <!-- BÁSICO -->
       <div class="tier-card tier-basico" data-tier="basico" data-qty="50" data-price="27.90" onclick="selectTier(this)">
-        <span class="tier-badge">7% OFF</span>
-        <div class="tier-radio"></div>
-        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+        <div class="tier-discount">7% OFF</div>
         <div class="tier-name">BÁSICO</div>
-        <div>
-          <div class="tier-numbers">50</div>
-          <div class="tier-numbers-label">Números da Sorte</div>
-        </div>
-        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +3 Caixas</div>
-        <div class="tier-prices">
-          <div class="tier-original">R$30,00</div>
-          <div class="tier-price">R$27,90</div>
-        </div>
+        <div class="tier-numbers">50</div>
+        <div class="tier-numbers-label">Números da Sorte</div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +3 Caixas Bônus</div>
+        <hr class="tier-divider">
+        <div class="tier-original">R$30,00</div>
+        <div class="tier-price">R$27,90</div>
+        <button class="tier-select-btn">SELECIONAR</button>
       </div>
 
       <!-- SILVER -->
-      <div class="tier-card tier-silver" data-tier="silver" data-qty="100" data-price="49.80" onclick="selectTier(this)">
-        <span class="tier-badge">17% OFF</span>
-        <div class="tier-radio"></div>
-        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+      <div class="tier-card tier-silver popular" data-tier="silver" data-qty="100" data-price="49.80" onclick="selectTier(this)">
+        <div class="tier-popular-badge"><i class="fa-solid fa-fire"></i> MAIS POPULAR</div>
+        <div class="tier-discount">17% OFF</div>
         <div class="tier-name">SILVER</div>
-        <div>
-          <div class="tier-numbers">100</div>
-          <div class="tier-numbers-label">Números da Sorte</div>
-        </div>
-        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +10 Caixas</div>
-        <div class="tier-prices">
-          <div class="tier-original">R$60,00</div>
-          <div class="tier-price">R$49,80</div>
-        </div>
+        <div class="tier-numbers">100</div>
+        <div class="tier-numbers-label">Números da Sorte</div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +10 Caixas Bônus</div>
+        <hr class="tier-divider">
+        <div class="tier-original">R$60,00</div>
+        <div class="tier-price">R$49,80</div>
+        <button class="tier-select-btn">SELECIONAR</button>
       </div>
 
       <!-- GOLD -->
       <div class="tier-card tier-gold" data-tier="gold" data-qty="200" data-price="90.00" onclick="selectTier(this)">
-        <span class="tier-badge">25% OFF</span>
-        <div class="tier-radio"></div>
-        <div class="tier-check"><i class="fa-solid fa-check"></i></div>
+        <div class="tier-discount">25% OFF</div>
         <div class="tier-name">GOLD</div>
-        <div>
-          <div class="tier-numbers">200</div>
-          <div class="tier-numbers-label">Números da Sorte</div>
-        </div>
-        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +50 Caixas</div>
-        <div class="tier-prices">
-          <div class="tier-original">R$120,00</div>
-          <div class="tier-price">R$90,00</div>
-        </div>
+        <div class="tier-numbers">200</div>
+        <div class="tier-numbers-label">Números da Sorte</div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +50 Caixas Bônus</div>
+        <hr class="tier-divider">
+        <div class="tier-original">R$120,00</div>
+        <div class="tier-price">R$90,00</div>
+        <button class="tier-select-btn">SELECIONAR</button>
       </div>
     </div>
 
+    <a href="#detalhes" class="packages-subtitle-link">
+      Clique aqui para ver todos os detalhes do sorteio <i class="fa-solid fa-arrow-down"></i>
+    </a>
   </section>
 
-  <!-- ========== ESPECIFICACOES TECNICAS ========== -->
+  <!-- ========== AUTO ENTRY MESSAGE (LMCT+ pattern) ========== -->
+  <section class="auto-entry-section">
+    <div class="container">
+      <h3>Compre qualquer pacote e seu nome é <span>automaticamente inscrito</span> para concorrer à RAM 1500 REBEL!</h3>
+      <p>Não perca — quanto mais números, maiores suas chances de ganhar!</p>
+    </div>
+  </section>
+
+  <!-- ========== TRUST BADGES ========== -->
+  <section class="trust-section">
+    <div class="trust-title">Compra 100% segura e garantida</div>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Checkout Seguro</span>
+      </div>
+      <div class="trust-badge">
+        <i class="fa-solid fa-lock"></i>
+        <span>Dados Protegidos</span>
+      </div>
+      <div class="trust-badge">
+        <i class="fa-brands fa-pix"></i>
+        <span>PIX</span>
+      </div>
+      <div class="trust-badge">
+        <i class="fa-brands fa-cc-visa"></i>
+        <span>Visa</span>
+      </div>
+      <div class="trust-badge">
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <span>Mastercard</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COUNTDOWN ========== -->
+  <section class="countdown-section">
+    <div class="countdown-label">Sorteio em</div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <div class="number" id="cd-days">00</div>
+        <div class="label">Dias</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="cd-hours">00</div>
+        <div class="label">Horas</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="cd-mins">00</div>
+        <div class="label">Minutos</div>
+      </div>
+      <div class="countdown-item">
+        <div class="number" id="cd-secs">00</div>
+        <div class="label">Segundos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA REPEAT ========== -->
+  <section class="cta-section">
+    <a href="#pacotes" class="btn-cta">
+      <i class="fa-solid fa-cart-shopping"></i>GARANTIR MEUS NÚMEROS
+    </a>
+  </section>
+
+  <!-- ========== GIVEAWAY DETAILS (LMCT+ Pattern) ========== -->
+  <section class="giveaway-details" id="detalhes">
+    <h2>Detalhes do <span>Sorteio</span></h2>
+    <p class="section-subtitle">Tudo o que você precisa saber sobre como funciona</p>
+
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h4>1. Escolha seu Pacote</h4>
+        <p>Selecione entre Básico, Silver ou Gold. Quanto maior o pacote, mais números e maiores suas chances!</p>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon"><i class="fa-solid fa-ticket"></i></div>
+        <h4>2. Receba seus Números</h4>
+        <p>Após o pagamento, seus números da sorte são gerados automaticamente e vinculados ao seu nome.</p>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon"><i class="fa-solid fa-trophy"></i></div>
+        <h4>3. Concorra ao Prêmio</h4>
+        <p>O sorteio é baseado na Loteria Federal — totalmente transparente e público. O ganhador leva a RAM!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPECS ========== -->
   <section class="specs-section">
     <div class="specs-inner">
       <div class="specs-text">
-        <h2>Especificações Técnicas</h2>
+        <h2>Especificações <span>Técnicas</span></h2>
         <ul class="specs-list">
           <li><i class="fa-solid fa-circle-check"></i> Motor 5.7L V8 HEMI</li>
           <li><i class="fa-solid fa-circle-check"></i> Potência aproximada de 395 cv</li>
@@ -1020,12 +1335,12 @@
         </ul>
       </div>
       <div class="specs-image">
-        <img src="images/ram-2.png" alt="RAM 1500 Rebel">
+        <img src="images/specs.png" alt="RAM 1500 Rebel Specs">
       </div>
     </div>
   </section>
 
-  <!-- ========== CARROSSEL FOTOS RAM ========== -->
+  <!-- ========== RAM CAROUSEL ========== -->
   <section class="ram-carousel-section">
     <div class="carousel-wrapper" id="ramCarousel">
       <button class="carousel-btn prev" onclick="slideCarousel('ram', -1)"><i class="fa-solid fa-chevron-left"></i></button>
@@ -1041,21 +1356,28 @@
     </div>
   </section>
 
-  <!-- ========== GANHADORES ========== -->
+  <!-- ========== THIS COULD BE YOU / WINNERS (LMCT+ pattern) ========== -->
   <section class="winners-section" id="ganhadores">
-    <h2>Nossos Ganhadores</h2>
-    <p class="winners-subtitle">+R$5 milhões em prêmios entregues!</p>
+    <h2>ESSE PODE SER <span>VOCÊ!</span></h2>
+    <p class="winners-subtitle">+R$5 milhões em prêmios entregues. Veja nossos ganhadores reais!</p>
     <div class="winners-grid">
-      <img src="images/ganhadores-1.png" alt="Ganhadores">
-      <img src="images/ganhadores-2.png" alt="Ganhadores">
-      <img src="images/ganhadores-3.png" alt="Ganhadores">
+      <div class="winner-card"><img src="images/ganhadores-1.png" alt="Ganhador Barone Prêmios"></div>
+      <div class="winner-card"><img src="images/ganhadores-2.png" alt="Ganhador Barone Prêmios"></div>
+      <div class="winner-card"><img src="images/ganhadores-3.png" alt="Ganhador Barone Prêmios"></div>
     </div>
+  </section>
+
+  <!-- ========== CTA REPEAT 2 ========== -->
+  <section class="cta-section">
+    <a href="#pacotes" class="btn-cta btn-cta-gold">
+      <i class="fa-solid fa-trophy"></i>QUERO CONCORRER AGORA
+    </a>
   </section>
 
   <!-- ========== FAQ ========== -->
   <section class="faq-section" id="faq">
     <div class="container">
-      <h2>FICOU COM DÚVIDA?</h2>
+      <h2>FICOU COM <span>DÚVIDA?</span></h2>
       <p class="faq-subtitle">Estamos aqui para ajudar!</p>
 
       <div class="faq-list">
@@ -1085,12 +1407,12 @@
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            SORTEIOS
+            COMO FUNCIONA O SORTEIO?
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Não há necessidade de se preocupar com os trâmites relacionados à entrega do prêmio, pois nós cuidaremos de tudo.
+              O sorteio é baseado na Loteria Federal — um órgão público que ninguém controla. O número sorteado é o mesmo para todo o Brasil. Não há como manipular. O resultado é transmitido ao vivo!
             </div>
           </div>
         </div>
@@ -1102,7 +1424,19 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Nossa equipe entrará em contato com você através do seu WhatsApp para fazer o pagamento do seu prêmio.
+              Nossa equipe entrará em contato com você através do seu WhatsApp para fazer o pagamento do seu prêmio. Não há necessidade de se preocupar com os trâmites — nós cuidamos de tudo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            O PRÊMIO É ISENTO DE IMPOSTOS?
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim! O valor do prêmio é pago líquido — você recebe o valor total, já livre de qualquer imposto. Sem surpresas!
             </div>
           </div>
         </div>
@@ -1114,7 +1448,7 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Fique tranquilo! Basta entrar nos grupos do sorteio!
+              Fique tranquilo! Basta entrar nos nossos grupos do WhatsApp ou Telegram para tirar todas as suas dúvidas diretamente com nossa equipe.
             </div>
           </div>
         </div>
@@ -1125,7 +1459,7 @@
   <!-- ========== INSTAGRAM ========== -->
   <section class="insta-section">
     <div class="container">
-      <h2><span class="black">Segue LA no </span><span class="green">insta!</span></h2>
+      <h2>Segue lá no <span class="green">Insta!</span></h2>
     </div>
     <div class="insta-grid">
       <a href="https://www.instagram.com/eusoubarone2/" target="_blank">
@@ -1141,37 +1475,37 @@
         <img src="images/insta-4.webp" alt="Instagram Barone">
       </a>
     </div>
-    <a href="https://www.instagram.com/eusoubarone2/" target="_blank" class="btn-primary">
-      <i class="fa-solid fa-star" style="margin-right: 8px;"></i>SEGUIR
+    <a href="https://www.instagram.com/eusoubarone2/" target="_blank" class="btn-cta" style="font-size: 18px; padding: 16px 45px;">
+      <i class="fa-brands fa-instagram"></i> SEGUIR NO INSTAGRAM
+    </a>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="final-cta">
+    <h2>NÃO PERCA <span>ESSA CHANCE!</span></h2>
+    <p>O sorteio está chegando. Garanta seus números antes que acabe!</p>
+    <a href="#pacotes" class="btn-cta">
+      <i class="fa-solid fa-bolt"></i>QUERO GANHAR A RAM DOS SONHOS
     </a>
   </section>
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer-grid">
-      <!-- Col 1: Logos -->
       <div class="footer-col footer-logo">
         <img src="images/logo.webp" alt="Barone Prêmios">
         <img src="images/lotep-branco.webp" alt="LOTEP" class="lotep">
       </div>
 
-      <!-- Col 2: Grupos -->
       <div class="footer-col">
         <h3>Entre nos Grupos</h3>
         <p><strong>Atendimento de segunda a sábado, das 09h às 19h</strong></p>
         <br>
-        <p>
-          <a href="https://sendflow.pro/i/QhwHhkMG8yreSaRZOGpp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Grupo do WhatsApp</a>
-        </p>
-        <p>
-          <a href="https://t.me/baronepremios" target="_blank"><i class="fa-brands fa-telegram"></i> Canal do Telegram</a>
-        </p>
-        <p>
-          <a href="https://linktr.ee/baronepremios" target="_blank"><i class="fa-solid fa-link"></i> Linktree</a>
-        </p>
+        <p><a href="https://sendflow.pro/i/QhwHhkMG8yreSaRZOGpp" target="_blank"><i class="fa-brands fa-whatsapp"></i> Grupo do WhatsApp</a></p>
+        <p><a href="https://t.me/baronepremios" target="_blank"><i class="fa-brands fa-telegram"></i> Canal do Telegram</a></p>
+        <p><a href="https://linktr.ee/baronepremios" target="_blank"><i class="fa-solid fa-link"></i> Linktree</a></p>
       </div>
 
-      <!-- Col 3: Sobre Nós -->
       <div class="footer-col footer-links">
         <h3>Sobre Nós</h3>
         <a href="#sobre">Sobre Nós</a>
@@ -1183,9 +1517,8 @@
         <a href="#jogo-responsavel">Jogo Responsável</a>
       </div>
 
-      <!-- Col 4: Redes Sociais -->
       <div class="footer-col">
-        <h3>REDES SOCIAIS</h3>
+        <h3>Redes Sociais</h3>
         <div class="footer-social">
           <a href="https://www.instagram.com/eusoubarone2/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.youtube.com/@eusoubaronevertical" target="_blank"><i class="fa-brands fa-youtube"></i></a>
@@ -1194,11 +1527,7 @@
     </div>
 
     <hr class="footer-divider">
-
-    <div class="footer-copyright">
-      2025 - Barone Prêmios
-    </div>
-
+    <div class="footer-copyright">2025 - Barone Prêmios</div>
     <hr class="footer-divider" style="margin-top: 0;">
 
     <div class="footer-legal">
@@ -1225,98 +1554,112 @@
     </div>
   </footer>
 
-
   <!-- ========== SCRIPTS ========== -->
   <script>
-    // FAQ accordion
+    // ========== STICKY BOTTOM CTA ==========
+    const stickyBar = document.getElementById('stickyBar');
+    let lastScroll = 0;
+
+    function handleStickyBar() {
+      const scrollY = window.scrollY;
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+
+      if (scrollY > heroHeight * 0.6) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+      lastScroll = scrollY;
+    }
+
+    window.addEventListener('scroll', handleStickyBar, { passive: true });
+
+    // ========== FAQ ACCORDION ==========
     function toggleFaq(el) {
       const item = el.parentElement;
       const wasOpen = item.classList.contains('open');
-
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-
-      // Toggle current
-      if (!wasOpen) {
-        item.classList.add('open');
-      }
+      if (!wasOpen) item.classList.add('open');
     }
 
-    // ========== CAROUSEL LOGIC ==========
-    const carousels = {
-      ram: { index: 0, track: null, total: 6, visible: 3 }
-    };
+    // ========== CAROUSEL ==========
+    const carousels = { ram: { index: 0, track: null, total: 6, visible: 3 } };
 
     function initCarousels() {
       carousels.ram.track = document.getElementById('ramTrack');
-
       function updateVisible() {
         carousels.ram.visible = window.innerWidth <= 768 ? 2 : 3;
       }
-
       updateVisible();
-      window.addEventListener('resize', () => {
-        updateVisible();
-        slideCarousel('ram', 0);
-      });
+      window.addEventListener('resize', () => { updateVisible(); slideCarousel('ram', 0); });
     }
 
     function slideCarousel(name, dir) {
       const c = carousels[name];
       if (!c.track) return;
-
       const maxIndex = c.total - c.visible;
       c.index = Math.max(0, Math.min(maxIndex, c.index + dir));
-
       const pct = (c.index / c.total) * 100;
       c.track.style.transform = `translateX(-${pct}%)`;
     }
 
     document.addEventListener('DOMContentLoaded', initCarousels);
 
-    // ========== PURCHASE SECTION LOGIC ==========
-    let selectedTier = null;
-    let currentQty = 50;
-    const UNIT_PRICE = 0.558; // base price per number (basico rate)
-
+    // ========== TIER SELECTION → CHECKOUT ==========
     const tiers = {
-      basico:  { qty: 50,  price: 27.90,  unit: 0.558 },
-      silver:  { qty: 100, price: 49.80,  unit: 0.498 },
-      gold:    { qty: 200, price: 90.00,  unit: 0.45  }
+      basico: { qty: 50, price: 27.90 },
+      silver: { qty: 100, price: 49.80 },
+      gold:   { qty: 200, price: 90.00 }
     };
 
     function selectTier(el) {
       document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
       el.classList.add('selected');
-      selectedTier = el.dataset.tier;
-      currentQty = tiers[selectedTier].qty;
-      // Redireciona direto para o checkout
+      const tier = el.dataset.tier;
       const checkoutUrl = 'https://checkout.baronepremios.com.br/';
       const params = new URLSearchParams();
-      params.set('qty', currentQty);
-      params.set('pacote', selectedTier);
+      params.set('qty', tiers[tier].qty);
+      params.set('pacote', tier);
       window.open(checkoutUrl + '?' + params.toString(), '_blank');
     }
 
-    function goToCheckout(e) {
-      e.preventDefault();
-      const checkoutUrl = 'https://checkout.baronepremios.com.br/';
-      const params = new URLSearchParams();
-      params.set('qty', currentQty);
-      if (selectedTier) {
-        params.set('pacote', selectedTier);
+    // ========== COUNTDOWN TIMER ==========
+    function startCountdown() {
+      const drawDate = new Date();
+      drawDate.setDate(drawDate.getDate() + 15);
+      drawDate.setHours(20, 30, 0, 0);
+
+      function update() {
+        const now = new Date();
+        const diff = drawDate - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
       }
-      window.open(checkoutUrl + '?' + params.toString(), '_blank');
+
+      update();
+      setInterval(update, 1000);
     }
 
-    // Auto-select basico on load
-    document.addEventListener('DOMContentLoaded', () => {
-      const basicoCard = document.querySelector('[data-tier="basico"]');
-      if (basicoCard) selectTier(basicoCard);
-    });
+    document.addEventListener('DOMContentLoaded', startCountdown);
 
-    // Scroll animations (intersection observer)
-    const animateOnScroll = () => {
+    // ========== SCROLL ANIMATIONS ==========
+    document.addEventListener('DOMContentLoaded', () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1326,15 +1669,13 @@
         });
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.badge-item, .etapa-card, .faq-item, .tier-card').forEach(el => {
+      document.querySelectorAll('.tier-card, .faq-item, .trust-badge, .specs-list li, .detail-card, .winner-card, .proof-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
       });
-    };
-
-    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    });
   </script>
 
 </body>
