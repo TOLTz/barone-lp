@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barone Prêmios - Concorra a uma RAM 1500 Rebel</title>
-  <meta name="description" content="Concorra a uma RAM 1500 Rebel! Escolha seu pacote, garanta seus números e mude sua vida.">
+  <title>Barone Prêmios - Concorra a uma Mercedes dos Sonhos</title>
+  <meta name="description" content="Concorra a uma Mercedes dos Sonhos! Escolha seu pacote, garanta seus números e mude sua vida.">
   <link rel="icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     /* ========== RESET ========== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', Arial, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+    body { font-family: 'DM Sans', Arial, sans-serif; background: #f5f5f5; color: #1a1a1a; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; height: auto; display: block; }
     ul { list-style: none; }
@@ -24,18 +24,22 @@
       --green-dark: #103200;
       --green-medium: #236a00;
       --green-bright: #01b701;
-      --green-light: #00df00;
-      --green-glow: rgba(0, 223, 0, 0.3);
-      --gold: #f4c24c;
+      --green-light: #008a00;
+      --green-glow: rgba(1, 183, 1, 0.15);
+      --gold: #d4a020;
       --red-urgent: #e63946;
       --white: #ffffff;
       --black: #000000;
-      --dark-bg: #0a0a0a;
-      --dark-card: #141414;
-      --dark-card-2: #1a1a1a;
+      --light-bg: #f5f5f5;
+      --light-card: #ffffff;
+      --light-card-2: #f0f0f0;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --text-muted: #888888;
+      --border-light: rgba(0, 0, 0, 0.08);
       --gradient-btn: linear-gradient(180deg, #01b701 0%, #008a00 100%);
       --gradient-btn-hover: linear-gradient(180deg, #00df00 0%, #01b701 100%);
-      --gradient-green-dark: linear-gradient(180deg, #0d2b00 0%, #0a0a0a 100%);
+      --gradient-green-light: linear-gradient(180deg, #e8f5e0 0%, #f5f5f5 100%);
       --max-width: 1000px;
       --max-width-wide: 1200px;
     }
@@ -49,7 +53,7 @@
     .btn-cta {
       display: inline-block;
       background: var(--gradient-btn);
-      color: var(--white);
+      color: #fff;
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 24px;
@@ -83,19 +87,19 @@
 
     .btn-cta-gold {
       background: linear-gradient(180deg, #f4c24c 0%, #d4a030 100%);
-      color: #000;
-      box-shadow: 0 4px 25px rgba(244, 194, 76, 0.3);
+      color: #1a1a1a;
+      box-shadow: 0 4px 20px rgba(212, 160, 32, 0.25);
     }
     .btn-cta-gold:hover {
       background: linear-gradient(180deg, #ffd666 0%, #f4c24c 100%);
-      box-shadow: 0 8px 35px rgba(244, 194, 76, 0.4);
+      box-shadow: 0 8px 30px rgba(212, 160, 32, 0.35);
     }
 
     /* ========== FLOATING STICKY BOTTOM CTA (LMCT+ Pattern) ========== */
     .sticky-bottom-cta {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      background: linear-gradient(180deg, rgba(16,50,0,0.97) 0%, rgba(10,10,10,0.99) 100%);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
       padding: 14px 24px;
       z-index: 1000;
@@ -104,7 +108,7 @@
       justify-content: center;
       gap: 20px;
       border-top: 2px solid var(--green-bright);
-      box-shadow: 0 -8px 30px rgba(0,0,0,0.8);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
       transform: translateY(100%);
       transition: transform 0.4s ease;
     }
@@ -114,7 +118,7 @@
       font-weight: 900;
       font-size: 16px;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--text-primary);
     }
     .sticky-bottom-cta .sticky-text span { color: var(--green-light); }
     .sticky-bottom-cta .btn-cta {
@@ -126,12 +130,13 @@
 
     /* ========== HEADER BAR ========== */
     .top-bar {
-      background: linear-gradient(180deg, #0d2b00 0%, #103200 100%);
+      background: #ffffff;
       padding: 14px 0;
       text-align: center;
-      border-bottom: 2px solid rgba(0,223,0,0.15);
+      border-bottom: 2px solid rgba(0,0,0,0.06);
       position: relative;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
     .top-bar-inner {
       max-width: var(--max-width);
@@ -152,7 +157,7 @@
     /* ========== HERO (LMCT+ inspired — big impact) ========== */
     .hero {
       position: relative;
-      background: var(--dark-bg);
+      background: #ffffff;
       overflow: hidden;
     }
     .hero-banner { width: 100%; position: relative; }
@@ -161,7 +166,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 40%;
-      background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+      background: linear-gradient(to top, #ffffff 0%, transparent 100%);
       pointer-events: none;
     }
 
@@ -187,12 +192,13 @@
       text-transform: uppercase;
       line-height: 1.05;
       margin-bottom: 16px;
+      color: var(--text-primary);
     }
     .hero-title span { color: var(--green-light); }
     .hero-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.65);
+      color: var(--text-secondary);
       margin-bottom: 10px;
       max-width: 600px;
       margin-left: auto;
@@ -202,8 +208,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0,223,0,0.08);
-      border: 1px solid rgba(0,223,0,0.2);
+      background: rgba(1,183,1,0.08);
+      border: 1px solid rgba(1,183,1,0.2);
       border-radius: 50px;
       padding: 8px 24px;
       margin-bottom: 24px;
@@ -225,15 +231,15 @@
     .hero-micro-text {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
-      color: rgba(255,255,255,0.4);
+      color: var(--text-muted);
     }
     .hero-micro-text i { color: var(--green-light); margin-right: 4px; }
 
     /* ========== SOCIAL PROOF TICKER (LMCT+ pattern) ========== */
     .social-proof-bar {
-      background: var(--dark-card);
-      border-top: 1px solid rgba(0,223,0,0.1);
-      border-bottom: 1px solid rgba(0,223,0,0.1);
+      background: #ffffff;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
       padding: 16px 0;
       overflow: hidden;
     }
@@ -250,11 +256,11 @@
       gap: 10px;
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
-      color: rgba(255,255,255,0.7);
+      color: var(--text-secondary);
       white-space: nowrap;
     }
     .proof-item i { color: var(--green-light); font-size: 18px; }
-    .proof-item strong { color: var(--white); font-size: 18px; }
+    .proof-item strong { color: var(--text-primary); font-size: 18px; }
 
     /* ========== URGENCY BAR ========== */
     .urgency-bar {
@@ -290,7 +296,7 @@
 
     /* ========== SELECT A PACKAGE heading (LMCT+ pattern) ========== */
     .select-package-header {
-      background: linear-gradient(180deg, #0a0a0a 0%, #0d2b00 100%);
+      background: linear-gradient(180deg, #f5f5f5 0%, #e8f5e0 100%);
       padding: 60px 0 10px;
       text-align: center;
     }
@@ -300,19 +306,20 @@
       font-size: 42px;
       text-transform: uppercase;
       margin-bottom: 8px;
+      color: var(--text-primary);
     }
     .select-package-header h2 span { color: var(--green-light); }
     .select-package-header p {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-secondary);
       max-width: 500px;
       margin: 0 auto;
     }
 
     /* ========== PACKAGES / TIERS ========== */
     .packages-section {
-      background: linear-gradient(180deg, #0d2b00 0%, #0a0a0a 100%);
+      background: linear-gradient(180deg, #e8f5e0 0%, #f5f5f5 100%);
       padding: 40px 0 70px;
       text-align: center;
     }
@@ -340,8 +347,8 @@
     }
 
     .tier-card {
-      background: var(--dark-card);
-      border: 2px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 2px solid var(--border-light);
       border-radius: 20px;
       padding: 30px 20px 24px;
       cursor: pointer;
@@ -349,6 +356,7 @@
       position: relative;
       overflow: hidden;
       text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     .tier-card::before {
       content: '';
@@ -360,17 +368,17 @@
     }
     .tier-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(0,223,0,0.3);
-      box-shadow: 0 16px 50px rgba(0,0,0,0.6);
+      border-color: rgba(1,183,1,0.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     }
     .tier-card:hover::before { background: var(--green-bright); }
     .tier-card.selected {
       border-color: var(--green-light);
-      box-shadow: 0 0 40px var(--green-glow);
+      box-shadow: 0 0 30px var(--green-glow);
     }
     .tier-card.popular {
       border-color: var(--gold);
-      box-shadow: 0 0 30px rgba(244, 194, 76, 0.15);
+      box-shadow: 0 4px 20px rgba(212, 160, 32, 0.15);
     }
     .tier-card.popular::before { background: var(--gold); height: 3px; }
 
@@ -405,12 +413,13 @@
       font-weight: 700;
       font-size: 26px;
       text-transform: uppercase;
-      color: #fff;
+      color: var(--text-primary);
       margin-bottom: 6px;
     }
-    .tier-basico .tier-name { color: #b0c4d8; }
-    .tier-silver .tier-name { color: #d4d4d4; }
+    .tier-basico .tier-name { color: #4a7a9b; }
+    .tier-silver .tier-name { color: #777777; }
     .tier-gold .tier-name { color: var(--gold); }
+    .tier-platinum .tier-name { color: #9c27b0; }
 
     .tier-numbers {
       font-family: 'Montserrat', sans-serif;
@@ -423,7 +432,7 @@
     .tier-numbers-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 16px;
@@ -433,8 +442,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(0,223,0,0.1);
-      border: 1px solid rgba(0,223,0,0.2);
+      background: rgba(1,183,1,0.08);
+      border: 1px solid rgba(1,183,1,0.2);
       color: var(--green-light);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
@@ -446,7 +455,7 @@
 
     .tier-divider {
       border: none;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--border-light);
       margin: 0 0 16px;
     }
 
@@ -454,13 +463,13 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       text-decoration: line-through;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-muted);
     }
     .tier-price {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 34px;
-      color: #fff;
+      color: var(--text-primary);
       margin: 4px 0 16px;
     }
 
@@ -481,6 +490,7 @@
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 2px 10px var(--green-glow);
     }
     .tier-select-btn::after {
       content: '';
@@ -498,7 +508,7 @@
 
     /* ========== AUTO-ENTRY MESSAGE (LMCT+ pattern) ========== */
     .auto-entry-section {
-      background: var(--dark-bg);
+      background: #ffffff;
       padding: 50px 0;
       text-align: center;
     }
@@ -510,23 +520,24 @@
       max-width: 600px;
       margin: 0 auto 24px;
       line-height: 1.2;
+      color: var(--text-primary);
     }
     .auto-entry-section h3 span { color: var(--green-light); }
     .auto-entry-section p {
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-secondary);
       max-width: 500px;
       margin: 0 auto;
     }
 
     /* ========== TRUST BADGES ========== */
     .trust-section {
-      background: var(--dark-card);
+      background: #f0f0f0;
       padding: 40px 0;
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
     .trust-title {
       font-family: 'DM Sans', sans-serif;
@@ -534,7 +545,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-muted);
       margin-bottom: 22px;
     }
     .trust-badges {
@@ -548,7 +559,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: rgba(255,255,255,0.7);
+      color: var(--text-secondary);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       font-weight: 700;
@@ -557,7 +568,7 @@
 
     /* ========== COUNTDOWN ========== */
     .countdown-section {
-      background: var(--dark-bg);
+      background: #ffffff;
       padding: 55px 0;
       text-align: center;
     }
@@ -566,7 +577,7 @@
       font-size: 20px;
       text-transform: uppercase;
       letter-spacing: 4px;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-muted);
       margin-bottom: 20px;
     }
     .countdown {
@@ -576,8 +587,8 @@
       flex-wrap: wrap;
     }
     .countdown-item {
-      background: var(--dark-card-2);
-      border: 1px solid rgba(0,223,0,0.15);
+      background: #f0f0f0;
+      border: 1px solid rgba(1,183,1,0.15);
       border-radius: 14px;
       padding: 18px 22px;
       min-width: 90px;
@@ -594,14 +605,14 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-muted);
       letter-spacing: 2px;
       margin-top: 6px;
     }
 
     /* ========== GIVEAWAY DETAILS (LMCT+ pattern) ========== */
     .giveaway-details {
-      background: linear-gradient(180deg, #0a0a0a 0%, #0d2b00 50%, #0a0a0a 100%);
+      background: linear-gradient(180deg, #f5f5f5 0%, #e8f5e0 50%, #f5f5f5 100%);
       padding: 80px 0;
     }
     .giveaway-details h2 {
@@ -611,12 +622,13 @@
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 10px;
+      color: var(--text-primary);
     }
     .giveaway-details h2 span { color: var(--green-light); }
     .giveaway-details .section-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-secondary);
       text-align: center;
       margin-bottom: 50px;
     }
@@ -630,20 +642,22 @@
       padding: 0 24px;
     }
     .detail-card {
-      background: var(--dark-card);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: #ffffff;
+      border: 1px solid var(--border-light);
       border-radius: 16px;
       padding: 30px 24px;
       text-align: center;
       transition: all 0.3s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .detail-card:hover {
-      border-color: rgba(0,223,0,0.2);
+      border-color: rgba(1,183,1,0.25);
       transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
     .detail-card .detail-icon {
       width: 56px; height: 56px;
-      background: rgba(0,223,0,0.1);
+      background: rgba(1,183,1,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -658,26 +672,28 @@
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 8px;
-      color: var(--white);
+      color: var(--text-primary);
     }
     .detail-card p {
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
     /* ========== CTA REPEAT ========== */
     .cta-section {
-      background: var(--dark-bg);
+      background: #f5f5f5;
       padding: 50px 0;
       text-align: center;
     }
 
     /* ========== SPECS ========== */
     .specs-section {
-      background: var(--dark-card);
+      background: #ffffff;
       padding: 80px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
     .specs-inner {
       max-width: var(--max-width);
@@ -691,7 +707,7 @@
     .specs-text h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 52px;
-      color: #fff;
+      color: var(--text-primary);
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-bottom: 24px;
@@ -701,9 +717,9 @@
       font-family: 'Oswald', sans-serif;
       font-size: 16px;
       font-weight: 700;
-      color: rgba(255,255,255,0.85);
+      color: var(--text-primary);
       padding: 11px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: baseline;
       gap: 10px;
@@ -714,7 +730,7 @@
 
     /* ========== RAM CAROUSEL ========== */
     .ram-carousel-section {
-      background: var(--dark-bg);
+      background: #f5f5f5;
       padding: 60px 0;
     }
     .carousel-wrapper {
@@ -761,7 +777,7 @@
 
     /* ========== THIS COULD BE YOU / WINNERS (LMCT+ pattern) ========== */
     .winners-section {
-      background: var(--dark-bg);
+      background: #ffffff;
       padding: 80px 0;
     }
     .winners-section h2 {
@@ -771,12 +787,13 @@
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
+      color: var(--text-primary);
     }
     .winners-section h2 span { color: var(--green-light); }
     .winners-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-secondary);
       text-align: center;
       margin-bottom: 50px;
     }
@@ -799,7 +816,7 @@
 
     /* ========== FAQ ========== */
     .faq-section {
-      background: var(--dark-card);
+      background: #f0f0f0;
       padding: 80px 0;
     }
     .faq-section h2 {
@@ -809,12 +826,13 @@
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
+      color: var(--text-primary);
     }
     .faq-section h2 span { color: var(--green-light); }
     .faq-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-secondary);
       text-align: center;
       margin-bottom: 50px;
     }
@@ -824,27 +842,28 @@
       padding: 0 24px;
     }
     .faq-item {
-      background: var(--dark-card-2);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: #ffffff;
+      border: 1px solid var(--border-light);
       border-radius: 14px;
       margin-bottom: 10px;
       overflow: hidden;
       transition: border-color 0.3s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
-    .faq-item:hover { border-color: rgba(0,223,0,0.15); }
+    .faq-item:hover { border-color: rgba(1,183,1,0.2); }
     .faq-question {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 20px 24px;
       cursor: pointer;
-      color: #fff;
+      color: var(--text-primary);
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       font-weight: 700;
       transition: background 0.2s;
     }
-    .faq-question:hover { background: rgba(255,255,255,0.02); }
+    .faq-question:hover { background: rgba(0,0,0,0.02); }
     .faq-question .arrow {
       font-size: 14px;
       transition: transform 0.3s;
@@ -856,7 +875,7 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     .faq-answer-inner {
       padding: 0 24px 20px;
-      color: rgba(255,255,255,0.6);
+      color: var(--text-secondary);
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       line-height: 1.7;
@@ -865,7 +884,7 @@
 
     /* ========== INSTAGRAM ========== */
     .insta-section {
-      background: var(--dark-bg);
+      background: #ffffff;
       padding: 80px 0;
       text-align: center;
     }
@@ -874,6 +893,7 @@
       font-weight: 700;
       font-size: 44px;
       margin-bottom: 40px;
+      color: var(--text-primary);
     }
     .insta-section h2 span.green { color: var(--green-light); }
     .insta-grid {
@@ -899,7 +919,7 @@
 
     /* ========== FINAL CTA (LMCT+ pattern — strong) ========== */
     .final-cta {
-      background: linear-gradient(180deg, #0d2b00 0%, #103200 50%, #0d2b00 100%);
+      background: linear-gradient(180deg, #e8f5e0 0%, #d4edcf 50%, #e8f5e0 100%);
       padding: 80px 0;
       text-align: center;
       position: relative;
@@ -910,7 +930,7 @@
       position: absolute;
       top: -50%; left: -50%;
       width: 200%; height: 200%;
-      background: radial-gradient(circle at center, rgba(0,223,0,0.05) 0%, transparent 50%);
+      background: radial-gradient(circle at center, rgba(1,183,1,0.06) 0%, transparent 50%);
       pointer-events: none;
     }
     .final-cta h2 {
@@ -920,21 +940,23 @@
       text-transform: uppercase;
       margin-bottom: 12px;
       position: relative;
+      color: var(--text-primary);
     }
     .final-cta h2 span { color: var(--green-light); }
     .final-cta p {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-secondary);
       margin-bottom: 30px;
       position: relative;
     }
 
     /* ========== FOOTER ========== */
     .footer {
-      background: var(--dark-card);
+      background: #1a1a1a;
       padding: 60px 0 0;
       border-top: 1px solid rgba(255,255,255,0.06);
+      color: #fff;
     }
     .footer-grid {
       display: grid;
@@ -952,7 +974,7 @@
       margin-bottom: 16px;
     }
     .footer-col p, .footer-col a {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.65);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       line-height: 1.8;
@@ -969,9 +991,9 @@
       justify-content: center;
       width: 40px; height: 40px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.1);
       font-size: 18px;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.7);
       transition: all 0.2s;
     }
     .footer-social a:hover { background: var(--green-bright); color: #fff; }
@@ -984,7 +1006,7 @@
     .footer-copyright {
       text-align: center;
       padding: 20px 0;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.5);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
     }
@@ -992,15 +1014,15 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 20px 24px 30px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.35);
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       line-height: 1.8;
       text-align: center;
     }
-    .footer-legal a { color: rgba(255,255,255,0.45); text-decoration: underline; }
+    .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: underline; }
     .footer-powered { text-align: center; padding: 20px 0 30px; }
-    .footer-powered img { max-width: 120px; margin: 0 auto; opacity: 0.55; }
+    .footer-powered img { max-width: 120px; margin: 0 auto; opacity: 0.6; }
 
     /* Padding bottom for sticky CTA */
     body { padding-bottom: 70px; }
@@ -1098,33 +1120,21 @@
 
   <!-- ========== STICKY BOTTOM CTA (LMCT+ Pattern) ========== -->
   <div class="sticky-bottom-cta" id="stickyBar">
-    <span class="sticky-text"><i class="fa-solid fa-trophy"></i> CONCORRA À <span>RAM 1500 REBEL</span></span>
+    <span class="sticky-text"><i class="fa-solid fa-trophy"></i> CONCORRA À <span>MERCEDES DOS SONHOS</span></span>
     <a href="#pacotes" class="btn-cta">
       <i class="fa-solid fa-bolt"></i>GARANTIR MEUS NÚMEROS
     </a>
   </div>
 
-  <!-- ========== TOP BAR ========== -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <img src="images/logo.webp" alt="Barone Prêmios">
-      <div class="top-bar-badges">
-        <img src="images/badge-1.webp" alt="Certificado">
-        <img src="images/badge-2.webp" alt="Certificado">
-        <img src="images/badge-3.webp" alt="Certificado">
-      </div>
-    </div>
-  </div>
-
   <!-- ========== HERO ========== -->
   <section class="hero">
     <div class="hero-banner">
-      <img src="images/banner-hero.png" alt="RAM 1500 Rebel - Concorra agora">
+      <img src="images/Barone---Mercedes-2[1090x545].webp" alt="Mercedes dos Sonhos - Concorra agora">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
       <div class="hero-eyebrow">Sorteio autorizado LOTEP</div>
-      <h1 class="hero-title">CONCORRA A UMA <span>RAM 1500 REBEL</span></h1>
+      <h1 class="hero-title">CONCORRA A UMA <span>MERCEDES DOS SONHOS</span></h1>
       <p class="hero-subtitle">Escolha seu pacote, garanta seus números e concorra ao prêmio dos sonhos!</p>
       <div class="hero-prize-tag">
         <i class="fa-solid fa-trophy"></i>
@@ -1132,7 +1142,7 @@
       </div>
       <div class="hero-cta-wrapper">
         <a href="#pacotes" class="btn-cta">
-          <i class="fa-solid fa-bolt"></i>QUERO GANHAR A RAM DOS SONHOS
+          <i class="fa-solid fa-bolt"></i>QUERO GANHAR A MERCEDES DOS SONHOS
         </a>
         <span class="hero-micro-text"><i class="fa-solid fa-shield-halved"></i> Compra 100% segura • Sorteio pela Loteria Federal</span>
       </div>
@@ -1172,7 +1182,7 @@
   <section class="select-package-header" id="pacotes">
     <div class="container">
       <h2>ESCOLHA SEU <span>PACOTE</span></h2>
-      <p>Compre qualquer pacote e seu nome entra automaticamente no sorteio da RAM 1500 Rebel!</p>
+      <p>Compre qualquer pacote e seu nome entra automaticamente no sorteio da Mercedes dos Sonhos!</p>
     </div>
   </section>
 
@@ -1218,6 +1228,19 @@
         <div class="tier-price">R$90,00</div>
         <button class="tier-select-btn">SELECIONAR</button>
       </div>
+
+      <!-- PLATINUM -->
+      <div class="tier-card tier-platinum" data-tier="platinum" data-qty="500" data-price="199.90" onclick="selectTier(this)">
+        <div class="tier-discount">34% OFF</div>
+        <div class="tier-name">PLATINUM</div>
+        <div class="tier-numbers">500</div>
+        <div class="tier-numbers-label">Números da Sorte</div>
+        <div class="tier-bonus"><i class="fa-solid fa-gift"></i> +150 Caixas Bônus</div>
+        <hr class="tier-divider">
+        <div class="tier-original">R$300,00</div>
+        <div class="tier-price">R$199,90</div>
+        <button class="tier-select-btn">SELECIONAR</button>
+      </div>
     </div>
 
     <a href="#detalhes" class="packages-subtitle-link">
@@ -1228,35 +1251,8 @@
   <!-- ========== AUTO ENTRY MESSAGE (LMCT+ pattern) ========== -->
   <section class="auto-entry-section">
     <div class="container">
-      <h3>Compre qualquer pacote e seu nome é <span>automaticamente inscrito</span> para concorrer à RAM 1500 REBEL!</h3>
+      <h3>Compre qualquer pacote e seu nome é <span>automaticamente inscrito</span> para concorrer à MERCEDES DOS SONHOS!</h3>
       <p>Não perca — quanto mais números, maiores suas chances de ganhar!</p>
-    </div>
-  </section>
-
-  <!-- ========== TRUST BADGES ========== -->
-  <section class="trust-section">
-    <div class="trust-title">Compra 100% segura e garantida</div>
-    <div class="trust-badges">
-      <div class="trust-badge">
-        <i class="fa-solid fa-shield-halved"></i>
-        <span>Checkout Seguro</span>
-      </div>
-      <div class="trust-badge">
-        <i class="fa-solid fa-lock"></i>
-        <span>Dados Protegidos</span>
-      </div>
-      <div class="trust-badge">
-        <i class="fa-brands fa-pix"></i>
-        <span>PIX</span>
-      </div>
-      <div class="trust-badge">
-        <i class="fa-brands fa-cc-visa"></i>
-        <span>Visa</span>
-      </div>
-      <div class="trust-badge">
-        <i class="fa-brands fa-cc-mastercard"></i>
-        <span>Mastercard</span>
-      </div>
     </div>
   </section>
 
@@ -1299,7 +1295,7 @@
       <div class="detail-card">
         <div class="detail-icon"><i class="fa-solid fa-cart-shopping"></i></div>
         <h4>1. Escolha seu Pacote</h4>
-        <p>Selecione entre Básico, Silver ou Gold. Quanto maior o pacote, mais números e maiores suas chances!</p>
+        <p>Selecione entre Básico, Silver, Gold ou Platinum. Quanto maior o pacote, mais números e maiores suas chances!</p>
       </div>
       <div class="detail-card">
         <div class="detail-icon"><i class="fa-solid fa-ticket"></i></div>
@@ -1320,22 +1316,8 @@
       <div class="specs-text">
         <h2>Especificações <span>Técnicas</span></h2>
         <ul class="specs-list">
-          <li><i class="fa-solid fa-circle-check"></i> Motor 5.7L V8 HEMI</li>
-          <li><i class="fa-solid fa-circle-check"></i> Potência aproximada de 395 cv</li>
-          <li><i class="fa-solid fa-circle-check"></i> Torque em torno de 56,7 kgfm</li>
-          <li><i class="fa-solid fa-circle-check"></i> Transmissão automática de 8 marchas</li>
-          <li><i class="fa-solid fa-circle-check"></i> Tração 4x4</li>
-          <li><i class="fa-solid fa-circle-check"></i> Sistema mild-hybrid eTorque</li>
-          <li><i class="fa-solid fa-circle-check"></i> Suspensão off-road com amortecedores Bilstein</li>
-          <li><i class="fa-solid fa-circle-check"></i> Diferencial traseiro blocante</li>
-          <li><i class="fa-solid fa-circle-check"></i> Altura do solo aproximada de 24 cm</li>
-          <li><i class="fa-solid fa-circle-check"></i> Rodas aro 18" - Pneus All-Terrain</li>
-          <li><i class="fa-solid fa-circle-check"></i> Capacidade de reboque de até cerca de 5.700 kg</li>
-          <li><i class="fa-solid fa-circle-check"></i> Picape grande com foco em off-road, força e robustez</li>
+          <li><i class="fa-solid fa-circle-check"></i> Motor 5.7L V8 HEMI com 395 cv de potência</li>
         </ul>
-      </div>
-      <div class="specs-image">
-        <img src="images/specs.png" alt="RAM 1500 Rebel Specs">
       </div>
     </div>
   </section>
@@ -1347,8 +1329,8 @@
       <div class="carousel-track" id="ramTrack">
         <img src="images/ram-1.png" alt="RAM frontal">
         <img src="images/ram-2.png" alt="RAM lateral">
-        <img src="images/ram-3.png" alt="RAM perfil">
-        <img src="images/ram-4.png" alt="RAM traseira">
+        <img src="images/lateral 1.png" alt="RAM perfil">
+        <img src="images/lateral 2.png" alt="RAM traseira">
         <img src="images/ram-5.png" alt="RAM interior painel">
         <img src="images/ram-6.png" alt="RAM interior banco traseiro">
       </div>
@@ -1485,7 +1467,7 @@
     <h2>NÃO PERCA <span>ESSA CHANCE!</span></h2>
     <p>O sorteio está chegando. Garanta seus números antes que acabe!</p>
     <a href="#pacotes" class="btn-cta">
-      <i class="fa-solid fa-bolt"></i>QUERO GANHAR A RAM DOS SONHOS
+      <i class="fa-solid fa-bolt"></i>QUERO GANHAR A MERCEDES DOS SONHOS
     </a>
   </section>
 
