@@ -23,7 +23,7 @@
 
     body {
       font-family: 'DM Sans', Arial, sans-serif;
-      background-color: #f5f2ef;
+      background-color: #ffffff;
       color: #000;
       overflow-x: hidden;
     }
@@ -129,18 +129,16 @@
     }
 
     .hero-banner .btn-primary {
-      position: absolute;
-      bottom: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 26px;
-      padding: 18px 80px;
-      z-index: 2;
+      display: block;
+      margin: 30px auto 0;
+      font-size: 48px;
+      padding: 30px 160px;
+      width: fit-content;
     }
 
     /* ========== PURCHASE SECTION ========== */
     .purchase-section {
-      background: var(--gradient-header);
+      background: #ffffff;
       padding: 80px 0;
       text-align: center;
     }
@@ -149,7 +147,7 @@
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 48px;
-      color: var(--white);
+      color: var(--black);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -157,7 +155,7 @@
     .purchase-section .purchase-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.8);
+      color: #555;
       margin-bottom: 50px;
     }
 
@@ -320,8 +318,8 @@
     }
 
     .purchase-cta .btn-primary {
-      font-size: 28px;
-      padding: 18px 70px;
+      font-size: 42px;
+      padding: 28px 140px;
       position: relative;
     }
 
@@ -343,7 +341,7 @@
 
     /* ========== SPECS + RAM CAROUSEL ========== */
     .specs-section {
-      background: var(--off-white);
+      background: #ffffff;
       padding: 80px 0;
     }
 
@@ -405,7 +403,7 @@
 
     /* RAM Carousel */
     .ram-carousel-section {
-      background: var(--gray-light);
+      background: #ffffff;
       padding: 60px 0;
     }
 
@@ -460,7 +458,7 @@
 
     /* ========== WINNERS / GANHADORES ========== */
     .winners-section {
-      background: var(--gradient-green-h);
+      background: #ffffff;
       padding: 80px 0;
     }
 
@@ -468,7 +466,7 @@
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 48px;
-      color: var(--white);
+      color: var(--black);
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
@@ -477,7 +475,7 @@
     .winners-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.8);
+      color: #555;
       text-align: center;
       margin-bottom: 50px;
     }
@@ -498,7 +496,7 @@
 
     /* ========== FAQ ========== */
     .faq-section {
-      background: var(--gradient-green-h);
+      background: #ffffff;
       padding: 80px 0;
     }
 
@@ -506,7 +504,7 @@
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 60px;
-      color: var(--white);
+      color: var(--black);
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 8px;
@@ -515,7 +513,7 @@
     .faq-section .faq-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: 22px;
-      color: var(--white);
+      color: #333;
       text-align: center;
       font-weight: 700;
       margin-bottom: 50px;
@@ -528,11 +526,11 @@
     }
 
     .faq-item {
-      background: rgba(255,255,255,0.1);
+      background: #f5f5f5;
       border-radius: 12px;
       margin-bottom: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid #e0e0e0;
     }
 
     .faq-question {
@@ -541,7 +539,7 @@
       justify-content: space-between;
       padding: 20px 24px;
       cursor: pointer;
-      color: var(--white);
+      color: #111;
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       font-weight: 700;
@@ -549,7 +547,7 @@
     }
 
     .faq-question:hover {
-      background: rgba(255,255,255,0.05);
+      background: #eee;
     }
 
     .faq-question .arrow {
@@ -571,7 +569,7 @@
 
     .faq-answer-inner {
       padding: 0 24px 20px;
-      color: rgba(255,255,255,0.85);
+      color: #444;
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       line-height: 1.6;
@@ -632,8 +630,9 @@
 
     /* ========== FOOTER ========== */
     .footer {
-      background: var(--gradient-header);
+      background: #ffffff;
       padding: 60px 0 0;
+      border-top: 1px solid #e0e0e0;
     }
 
     .footer-grid {
@@ -649,20 +648,20 @@
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
       font-size: 24px;
-      color: var(--gold);
+      color: var(--green-dark);
       margin-bottom: 16px;
     }
 
     .footer-col p,
     .footer-col a {
-      color: var(--white);
+      color: #333;
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       line-height: 1.8;
     }
 
     .footer-col a:hover {
-      color: var(--gold);
+      color: var(--green-bright);
     }
 
     .footer-logo {
@@ -698,18 +697,18 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.1);
+      background: #f0f0f0;
       font-size: 18px;
       transition: background 0.2s;
     }
 
     .footer-social a:hover {
-      background: rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.1);
     }
 
     .footer-divider {
       border: none;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid rgba(0,0,0,0.15);
       margin: 40px auto 0;
       max-width: var(--max-width);
     }
@@ -717,7 +716,7 @@
     .footer-copyright {
       text-align: center;
       padding: 20px 0;
-      color: var(--white);
+      color: #222;
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       font-weight: 700;
@@ -727,7 +726,7 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 20px 40px 30px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(0,0,0,0.55);
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       line-height: 1.8;
@@ -735,7 +734,7 @@
     }
 
     .footer-legal a {
-      color: rgba(255,255,255,0.8);
+      color: rgba(0,0,0,0.75);
       text-decoration: underline;
     }
 
@@ -803,9 +802,8 @@
     /* ========== RESPONSIVE ========== */
     @media (max-width: 1024px) {
       .hero-banner .btn-primary {
-        font-size: 16px;
-        padding: 12px 40px;
-        bottom: 6%;
+        font-size: 36px;
+        padding: 22px 100px;
       }
     }
 
@@ -899,9 +897,8 @@
 
     @media (max-width: 480px) {
       .hero-banner .btn-primary {
-        font-size: 12px;
-        padding: 8px 28px;
-        bottom: 4%;
+        font-size: 28px;
+        padding: 18px 60px;
       }
 
       .faq-section,
@@ -1216,31 +1213,6 @@
     </div>
   </footer>
 
-  <!-- ========== BOTTOM NAV (MOBILE) ========== -->
-  <nav class="bottom-nav">
-    <div class="bottom-nav-inner">
-      <a href="#" aria-label="Menu">
-        <i class="fa-solid fa-bars"></i>
-        <span>Mais</span>
-      </a>
-      <a href="#numeros" aria-label="Consultar">
-        <i class="fa-solid fa-ticket"></i>
-        <span>Consultar</span>
-      </a>
-      <a href="https://checkout.baronepremios.com.br/" target="_blank" class="buy-btn" aria-label="Comprar">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span>Comprar</span>
-      </a>
-      <a href="#resultados" aria-label="Resultados">
-        <i class="fa-solid fa-trophy"></i>
-        <span>Resultados</span>
-      </a>
-      <a href="#sobre" aria-label="Sobre">
-        <i class="fa-solid fa-circle-info"></i>
-        <span>Sobre nos</span>
-      </a>
-    </div>
-  </nav>
 
   <!-- ========== SCRIPTS ========== -->
   <script>
