@@ -165,7 +165,7 @@
     .hero-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 40%;
+      height: 18%;
       background: linear-gradient(to top, #ffffff 0%, transparent 100%);
       pointer-events: none;
     }
@@ -285,11 +285,13 @@
     .urgency-text {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       position: relative;
       z-index: 1;
+      text-align: center;
+      line-height: 1.5;
     }
     .urgency-text i { margin-right: 8px; animation: pulse 1s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -349,8 +351,8 @@
     .tier-card {
       background: #ffffff;
       border: 2px solid var(--border-light);
-      border-radius: 20px;
-      padding: 30px 20px 24px;
+      border-radius: 16px;
+      padding: 20px 14px 16px;
       cursor: pointer;
       transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
       position: relative;
@@ -394,7 +396,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-    .tier-card.popular { padding-top: 54px; }
+    .tier-card.popular { padding-top: 42px; }
 
     .tier-discount {
       display: inline-block;
@@ -402,19 +404,19 @@
       color: #fff;
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 13px;
-      padding: 4px 16px;
+      font-size: 12px;
+      padding: 3px 12px;
       border-radius: 20px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
     .tier-name {
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 26px;
+      font-size: 20px;
       text-transform: uppercase;
       color: var(--text-primary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .tier-basico .tier-name { color: #4a7a9b; }
     .tier-silver .tier-name { color: #777777; }
@@ -424,33 +426,33 @@
     .tier-numbers {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 50px;
+      font-size: 36px;
       color: var(--green-light);
       line-height: 1;
-      margin: 8px 0 4px;
+      margin: 6px 0 2px;
     }
     .tier-numbers-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-size: 11px;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
     .tier-bonus {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       background: rgba(1,183,1,0.08);
       border: 1px solid rgba(1,183,1,0.2);
       color: var(--green-light);
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 6px 16px;
+      padding: 4px 12px;
       border-radius: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .tier-divider {
@@ -1167,19 +1169,11 @@
     <div class="proof-ticker">
       <div class="proof-item">
         <i class="fa-solid fa-users"></i>
-        <span><strong>12.847+</strong> participantes</span>
+        <span><strong>1.3M+</strong> participantes</span>
       </div>
       <div class="proof-item">
         <i class="fa-solid fa-gift"></i>
-        <span><strong>R$5M+</strong> em prêmios entregues</span>
-      </div>
-      <div class="proof-item">
-        <i class="fa-solid fa-star"></i>
-        <span><strong>4.9/5</strong> avaliação</span>
-      </div>
-      <div class="proof-item">
-        <i class="fa-solid fa-bolt"></i>
-        <span><strong>32</strong> compraram na última hora</span>
+        <span><strong>+de 10M</strong> em prêmios entregues</span>
       </div>
     </div>
   </div>
@@ -1187,7 +1181,7 @@
   <!-- ========== URGENCY BAR ========== -->
   <div class="urgency-bar">
     <div class="urgency-text">
-      <i class="fa-solid fa-bolt"></i> CORRA! SORTEIO SE APROXIMA — GARANTA SEU NÚMERO AGORA!
+      <i class="fa-solid fa-bolt"></i> CORRA! SORTEIO SE APROXIMA —<br>GARANTA SEU NÚMERO AGORA!
     </div>
   </div>
 
@@ -1200,8 +1194,10 @@
   </section>
 
   <!-- ========== PACKAGES ========== -->
+  <!-- TODO: Integração com API — os dados dos combos (nome, quantidade de números, preço, bônus, desconto)
+       devem ser carregados dinamicamente via API. Aguardando endpoint para implementar o fetch. -->
   <section class="packages-section">
-    <div class="tier-grid">
+    <div class="tier-grid" id="tier-grid">
       <!-- BÁSICO -->
       <div class="tier-card tier-basico" data-tier="basico" data-qty="50" data-price="27.90" onclick="selectTier(this)">
         <div class="tier-discount">7% OFF</div>
@@ -1340,34 +1336,22 @@
     <div class="carousel-wrapper" id="ramCarousel">
       <button class="carousel-btn prev" onclick="slideCarousel('ram', -1)"><i class="fa-solid fa-chevron-left"></i></button>
       <div class="carousel-track" id="ramTrack">
-        <img src="../images/IMG_1938.JPG" alt="Barone Prêmios foto 1">
-        <img src="../images/IMG_1943.JPG" alt="Barone Prêmios foto 8">
-        <img src="../images/IMG_1944.JPG" alt="Barone Prêmios foto 9">
-        <img src="../images/IMG_1945.JPG" alt="Barone Prêmios foto 10">
-        <img src="../images/IMG_1946.JPG" alt="Barone Prêmios foto 11">
-        <img src="../images/IMG_1947.JPG" alt="Barone Prêmios foto 12">
-        <img src="../images/IMG_1948.JPG" alt="Barone Prêmios foto 13">
-        <img src="../images/IMG_1949.JPG" alt="Barone Prêmios foto 14">
-        <img src="../images/IMG_1950.JPG" alt="Barone Prêmios foto 15">
-        <img src="../images/IMG_1951.JPG" alt="Barone Prêmios foto 16">
-        <img src="../images/IMG_1952.JPG" alt="Barone Prêmios foto 17">
-        <img src="../images/IMG_1953.JPG" alt="Barone Prêmios foto 18">
-        <img src="../images/IMG_1954.JPG" alt="Barone Prêmios foto 19">
-        <img src="../images/IMG_1955.JPG" alt="Barone Prêmios foto 20">
-        <img src="../images/IMG_1956.JPG" alt="Barone Prêmios foto 21">
-        <img src="../images/IMG_1957.JPG" alt="Barone Prêmios foto 22">
-        <img src="../images/IMG_1958.JPG" alt="Barone Prêmios foto 23">
-        <img src="../images/IMG_1959.JPG" alt="Barone Prêmios foto 24">
-        <img src="../images/IMG_1960.JPG" alt="Barone Prêmios foto 25">
-        <img src="../images/IMG_1961.JPG" alt="Barone Prêmios foto 26">
-        <img src="../images/IMG_1962.JPG" alt="Barone Prêmios foto 27">
-        <img src="../images/IMG_1963.JPG" alt="Barone Prêmios foto 28">
-        <img src="../images/IMG_1964.JPG" alt="Barone Prêmios foto 29">
-        <img src="../images/IMG_1965.JPG" alt="Barone Prêmios foto 30">
-        <img src="../images/IMG_1966.JPG" alt="Barone Prêmios foto 31">
-        <img src="../images/IMG_1967.JPG" alt="Barone Prêmios foto 32">
-        <img src="../images/IMG_1968.JPG" alt="Barone Prêmios foto 33">
-        <img src="../images/IMG_1969.JPG" alt="Barone Prêmios foto 34">
+        <img src="../images/IMG_1936.JPG" alt="Barone Prêmios foto 1">
+        <img src="../images/IMG_1939.JPG" alt="Barone Prêmios foto 2">
+        <img src="../images/IMG_1942.JPG" alt="Barone Prêmios foto 3">
+        <img src="../images/IMG_1944.JPG" alt="Barone Prêmios foto 4">
+        <img src="../images/IMG_1945.JPG" alt="Barone Prêmios foto 5">
+        <img src="../images/IMG_1947.JPG" alt="Barone Prêmios foto 6">
+        <img src="../images/IMG_1948.JPG" alt="Barone Prêmios foto 7">
+        <img src="../images/IMG_1949.JPG" alt="Barone Prêmios foto 8">
+        <img src="../images/IMG_1952.JPG" alt="Barone Prêmios foto 9">
+        <img src="../images/IMG_1956.JPG" alt="Barone Prêmios foto 10">
+        <img src="../images/IMG_1958.JPG" alt="Barone Prêmios foto 11">
+        <img src="../images/IMG_1960.JPG" alt="Barone Prêmios foto 12">
+        <img src="../images/IMG_1963.JPG" alt="Barone Prêmios foto 13">
+        <img src="../images/IMG_1965.JPG" alt="Barone Prêmios foto 14">
+        <img src="../images/IMG_1967.JPG" alt="Barone Prêmios foto 15">
+        <img src="../images/IMG_1968.JPG" alt="Barone Prêmios foto 16">
       </div>
       <button class="carousel-btn next" onclick="slideCarousel('ram', 1)"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
@@ -1600,7 +1584,7 @@
     }
 
     // ========== CAROUSEL ==========
-    const carousels = { ram: { index: 0, track: null, total: 28, visible: 3 } };
+    const carousels = { ram: { index: 0, track: null, total: 16, visible: 3 } };
 
     function initCarousels() {
       carousels.ram.track = document.getElementById('ramTrack');
